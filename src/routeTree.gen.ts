@@ -19,10 +19,14 @@ import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as CustomItineraryRouteImport } from './routes/custom-itinerary'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const VisaRoute = VisaRouteImport.update({
   id: '/visa',
@@ -74,9 +78,18 @@ const BlogsRoute = BlogsRouteImport.update({
   path: '/blogs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -94,10 +107,21 @@ const BlogsSlugRoute = BlogsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogsRoute,
 } as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
   '/custom-itinerary': typeof CustomItineraryRoute
@@ -108,12 +132,15 @@ export interface FileRoutesByFullPath {
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
   '/custom-itinerary': typeof CustomItineraryRoute
@@ -124,13 +151,17 @@ export interface FileRoutesByTo {
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
   '/custom-itinerary': typeof CustomItineraryRoute
@@ -141,6 +172,8 @@ export interface FileRoutesById {
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
 }
@@ -149,6 +182,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/auth'
     | '/blogs'
     | '/contact'
     | '/custom-itinerary'
@@ -159,12 +193,15 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/travel-insurance'
     | '/visa'
+    | '/admin'
+    | '/dashboard'
     | '/blogs/$slug'
     | '/tours/$tourId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/auth'
     | '/blogs'
     | '/contact'
     | '/custom-itinerary'
@@ -175,12 +212,16 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/travel-insurance'
     | '/visa'
+    | '/admin'
+    | '/dashboard'
     | '/blogs/$slug'
     | '/tours/$tourId'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about'
+    | '/auth'
     | '/blogs'
     | '/contact'
     | '/custom-itinerary'
@@ -191,13 +232,17 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/travel-insurance'
     | '/visa'
+    | '/_authenticated/admin'
+    | '/_authenticated/dashboard'
     | '/blogs/$slug'
     | '/tours/$tourId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
   BlogsRoute: typeof BlogsRouteWithChildren
   ContactRoute: typeof ContactRoute
   CustomItineraryRoute: typeof CustomItineraryRoute
@@ -283,11 +328,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -311,8 +370,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof BlogsRoute
     }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 interface BlogsRouteChildren {
   BlogsSlugRoute: typeof BlogsSlugRoute
@@ -326,7 +412,9 @@ const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
   BlogsRoute: BlogsRouteWithChildren,
   ContactRoute: ContactRoute,
   CustomItineraryRoute: CustomItineraryRoute,
@@ -342,3 +430,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
