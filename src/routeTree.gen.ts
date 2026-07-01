@@ -9,38 +9,346 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VisaRouteImport } from './routes/visa'
+import { Route as TravelInsuranceRouteImport } from './routes/travel-insurance'
+import { Route as InternationalToursRouteImport } from './routes/international-tours'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as EgyptRouteImport } from './routes/egypt'
+import { Route as DomesticToursRouteImport } from './routes/domestic-tours'
+import { Route as DestinationsRouteImport } from './routes/destinations'
+import { Route as CustomItineraryRouteImport } from './routes/custom-itinerary'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
+import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
+const VisaRoute = VisaRouteImport.update({
+  id: '/visa',
+  path: '/visa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TravelInsuranceRoute = TravelInsuranceRouteImport.update({
+  id: '/travel-insurance',
+  path: '/travel-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternationalToursRoute = InternationalToursRouteImport.update({
+  id: '/international-tours',
+  path: '/international-tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EgyptRoute = EgyptRouteImport.update({
+  id: '/egypt',
+  path: '/egypt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomesticToursRoute = DomesticToursRouteImport.update({
+  id: '/domestic-tours',
+  path: '/domestic-tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DestinationsRoute = DestinationsRouteImport.update({
+  id: '/destinations',
+  path: '/destinations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomItineraryRoute = CustomItineraryRouteImport.update({
+  id: '/custom-itinerary',
+  path: '/custom-itinerary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToursTourIdRoute = ToursTourIdRouteImport.update({
+  id: '/tours/$tourId',
+  path: '/tours/$tourId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogsRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/custom-itinerary': typeof CustomItineraryRoute
+  '/destinations': typeof DestinationsRoute
+  '/domestic-tours': typeof DomesticToursRoute
+  '/egypt': typeof EgyptRoute
+  '/faq': typeof FaqRoute
+  '/international-tours': typeof InternationalToursRoute
+  '/travel-insurance': typeof TravelInsuranceRoute
+  '/visa': typeof VisaRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/tours/$tourId': typeof ToursTourIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/custom-itinerary': typeof CustomItineraryRoute
+  '/destinations': typeof DestinationsRoute
+  '/domestic-tours': typeof DomesticToursRoute
+  '/egypt': typeof EgyptRoute
+  '/faq': typeof FaqRoute
+  '/international-tours': typeof InternationalToursRoute
+  '/travel-insurance': typeof TravelInsuranceRoute
+  '/visa': typeof VisaRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/tours/$tourId': typeof ToursTourIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/custom-itinerary': typeof CustomItineraryRoute
+  '/destinations': typeof DestinationsRoute
+  '/domestic-tours': typeof DomesticToursRoute
+  '/egypt': typeof EgyptRoute
+  '/faq': typeof FaqRoute
+  '/international-tours': typeof InternationalToursRoute
+  '/travel-insurance': typeof TravelInsuranceRoute
+  '/visa': typeof VisaRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/tours/$tourId': typeof ToursTourIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/blogs'
+    | '/contact'
+    | '/custom-itinerary'
+    | '/destinations'
+    | '/domestic-tours'
+    | '/egypt'
+    | '/faq'
+    | '/international-tours'
+    | '/travel-insurance'
+    | '/visa'
+    | '/admin'
+    | '/dashboard'
+    | '/blogs/$slug'
+    | '/tours/$tourId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/blogs'
+    | '/contact'
+    | '/custom-itinerary'
+    | '/destinations'
+    | '/domestic-tours'
+    | '/egypt'
+    | '/faq'
+    | '/international-tours'
+    | '/travel-insurance'
+    | '/visa'
+    | '/admin'
+    | '/dashboard'
+    | '/blogs/$slug'
+    | '/tours/$tourId'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/about'
+    | '/auth'
+    | '/blogs'
+    | '/contact'
+    | '/custom-itinerary'
+    | '/destinations'
+    | '/domestic-tours'
+    | '/egypt'
+    | '/faq'
+    | '/international-tours'
+    | '/travel-insurance'
+    | '/visa'
+    | '/_authenticated/admin'
+    | '/_authenticated/dashboard'
+    | '/blogs/$slug'
+    | '/tours/$tourId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
+  BlogsRoute: typeof BlogsRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  CustomItineraryRoute: typeof CustomItineraryRoute
+  DestinationsRoute: typeof DestinationsRoute
+  DomesticToursRoute: typeof DomesticToursRoute
+  EgyptRoute: typeof EgyptRoute
+  FaqRoute: typeof FaqRoute
+  InternationalToursRoute: typeof InternationalToursRoute
+  TravelInsuranceRoute: typeof TravelInsuranceRoute
+  VisaRoute: typeof VisaRoute
+  ToursTourIdRoute: typeof ToursTourIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/visa': {
+      id: '/visa'
+      path: '/visa'
+      fullPath: '/visa'
+      preLoaderRoute: typeof VisaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/travel-insurance': {
+      id: '/travel-insurance'
+      path: '/travel-insurance'
+      fullPath: '/travel-insurance'
+      preLoaderRoute: typeof TravelInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/international-tours': {
+      id: '/international-tours'
+      path: '/international-tours'
+      fullPath: '/international-tours'
+      preLoaderRoute: typeof InternationalToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/egypt': {
+      id: '/egypt'
+      path: '/egypt'
+      fullPath: '/egypt'
+      preLoaderRoute: typeof EgyptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/domestic-tours': {
+      id: '/domestic-tours'
+      path: '/domestic-tours'
+      fullPath: '/domestic-tours'
+      preLoaderRoute: typeof DomesticToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/destinations': {
+      id: '/destinations'
+      path: '/destinations'
+      fullPath: '/destinations'
+      preLoaderRoute: typeof DestinationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-itinerary': {
+      id: '/custom-itinerary'
+      path: '/custom-itinerary'
+      fullPath: '/custom-itinerary'
+      preLoaderRoute: typeof CustomItineraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +356,77 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tours/$tourId': {
+      id: '/tours/$tourId'
+      path: '/tours/$tourId'
+      fullPath: '/tours/$tourId'
+      preLoaderRoute: typeof ToursTourIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs/$slug': {
+      id: '/blogs/$slug'
+      path: '/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof BlogsSlugRouteImport
+      parentRoute: typeof BlogsRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
+interface BlogsRouteChildren {
+  BlogsSlugRoute: typeof BlogsSlugRoute
+}
+
+const BlogsRouteChildren: BlogsRouteChildren = {
+  BlogsSlugRoute: BlogsSlugRoute,
+}
+
+const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
+  BlogsRoute: BlogsRouteWithChildren,
+  ContactRoute: ContactRoute,
+  CustomItineraryRoute: CustomItineraryRoute,
+  DestinationsRoute: DestinationsRoute,
+  DomesticToursRoute: DomesticToursRoute,
+  EgyptRoute: EgyptRoute,
+  FaqRoute: FaqRoute,
+  InternationalToursRoute: InternationalToursRoute,
+  TravelInsuranceRoute: TravelInsuranceRoute,
+  VisaRoute: VisaRoute,
+  ToursTourIdRoute: ToursTourIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
