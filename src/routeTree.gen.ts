@@ -27,6 +27,10 @@ import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
+import { Route as AuthenticatedAdminResourceRouteImport } from './routes/_authenticated/admin.$resource'
+import { Route as AuthenticatedAdminResourceNewRouteImport } from './routes/_authenticated/admin.$resource.new'
+import { Route as AuthenticatedAdminResourceIdRouteImport } from './routes/_authenticated/admin.$resource.$id'
 
 const VisaRoute = VisaRouteImport.update({
   id: '/visa',
@@ -117,6 +121,29 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminResourceRoute =
+  AuthenticatedAdminResourceRouteImport.update({
+    id: '/$resource',
+    path: '/$resource',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminResourceNewRoute =
+  AuthenticatedAdminResourceNewRouteImport.update({
+    id: '/new',
+    path: '/new',
+    getParentRoute: () => AuthenticatedAdminResourceRoute,
+  } as any)
+const AuthenticatedAdminResourceIdRoute =
+  AuthenticatedAdminResourceIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => AuthenticatedAdminResourceRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -132,10 +159,14 @@ export interface FileRoutesByFullPath {
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
-  '/admin': typeof AuthenticatedAdminRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/admin/$resource/$id': typeof AuthenticatedAdminResourceIdRoute
+  '/admin/$resource/new': typeof AuthenticatedAdminResourceNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -151,10 +182,13 @@ export interface FileRoutesByTo {
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
-  '/admin': typeof AuthenticatedAdminRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/admin/$resource/$id': typeof AuthenticatedAdminResourceIdRoute
+  '/admin/$resource/new': typeof AuthenticatedAdminResourceNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -172,10 +206,14 @@ export interface FileRoutesById {
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
-  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/_authenticated/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/admin/$resource/$id': typeof AuthenticatedAdminResourceIdRoute
+  '/_authenticated/admin/$resource/new': typeof AuthenticatedAdminResourceNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -197,6 +235,10 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/blogs/$slug'
     | '/tours/$tourId'
+    | '/admin/$resource'
+    | '/admin/'
+    | '/admin/$resource/$id'
+    | '/admin/$resource/new'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -212,10 +254,13 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/travel-insurance'
     | '/visa'
-    | '/admin'
     | '/dashboard'
     | '/blogs/$slug'
     | '/tours/$tourId'
+    | '/admin/$resource'
+    | '/admin'
+    | '/admin/$resource/$id'
+    | '/admin/$resource/new'
   id:
     | '__root__'
     | '/'
@@ -236,6 +281,10 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/blogs/$slug'
     | '/tours/$tourId'
+    | '/_authenticated/admin/$resource'
+    | '/_authenticated/admin/'
+    | '/_authenticated/admin/$resource/$id'
+    | '/_authenticated/admin/$resource/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -384,16 +433,73 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/$resource': {
+      id: '/_authenticated/admin/$resource'
+      path: '/$resource'
+      fullPath: '/admin/$resource'
+      preLoaderRoute: typeof AuthenticatedAdminResourceRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/$resource/new': {
+      id: '/_authenticated/admin/$resource/new'
+      path: '/new'
+      fullPath: '/admin/$resource/new'
+      preLoaderRoute: typeof AuthenticatedAdminResourceNewRouteImport
+      parentRoute: typeof AuthenticatedAdminResourceRoute
+    }
+    '/_authenticated/admin/$resource/$id': {
+      id: '/_authenticated/admin/$resource/$id'
+      path: '/$id'
+      fullPath: '/admin/$resource/$id'
+      preLoaderRoute: typeof AuthenticatedAdminResourceIdRouteImport
+      parentRoute: typeof AuthenticatedAdminResourceRoute
+    }
   }
 }
 
+interface AuthenticatedAdminResourceRouteChildren {
+  AuthenticatedAdminResourceIdRoute: typeof AuthenticatedAdminResourceIdRoute
+  AuthenticatedAdminResourceNewRoute: typeof AuthenticatedAdminResourceNewRoute
+}
+
+const AuthenticatedAdminResourceRouteChildren: AuthenticatedAdminResourceRouteChildren =
+  {
+    AuthenticatedAdminResourceIdRoute: AuthenticatedAdminResourceIdRoute,
+    AuthenticatedAdminResourceNewRoute: AuthenticatedAdminResourceNewRoute,
+  }
+
+const AuthenticatedAdminResourceRouteWithChildren =
+  AuthenticatedAdminResourceRoute._addFileChildren(
+    AuthenticatedAdminResourceRouteChildren,
+  )
+
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminResourceRoute: typeof AuthenticatedAdminResourceRouteWithChildren
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+}
+
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminResourceRoute: AuthenticatedAdminResourceRouteWithChildren,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+}
+
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
+
 interface AuthenticatedRouteRouteChildren {
-  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
 }
 
