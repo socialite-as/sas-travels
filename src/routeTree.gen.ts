@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as TravelInsuranceRouteImport } from './routes/travel-insurance'
 import { Route as InternationalToursRouteImport } from './routes/international-tours'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EgyptRouteImport } from './routes/egypt'
 import { Route as DomesticToursRouteImport } from './routes/domestic-tours'
@@ -45,6 +46,11 @@ const TravelInsuranceRoute = TravelInsuranceRouteImport.update({
 const InternationalToursRoute = InternationalToursRouteImport.update({
   id: '/international-tours',
   path: '/international-tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/domestic-tours': typeof DomesticToursRoute
   '/egypt': typeof EgyptRoute
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
@@ -179,6 +186,7 @@ export interface FileRoutesByTo {
   '/domestic-tours': typeof DomesticToursRoute
   '/egypt': typeof EgyptRoute
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
@@ -203,6 +211,7 @@ export interface FileRoutesById {
   '/domestic-tours': typeof DomesticToursRoute
   '/egypt': typeof EgyptRoute
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/international-tours': typeof InternationalToursRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
@@ -228,6 +237,7 @@ export interface FileRouteTypes {
     | '/domestic-tours'
     | '/egypt'
     | '/faq'
+    | '/gallery'
     | '/international-tours'
     | '/travel-insurance'
     | '/visa'
@@ -251,6 +261,7 @@ export interface FileRouteTypes {
     | '/domestic-tours'
     | '/egypt'
     | '/faq'
+    | '/gallery'
     | '/international-tours'
     | '/travel-insurance'
     | '/visa'
@@ -274,6 +285,7 @@ export interface FileRouteTypes {
     | '/domestic-tours'
     | '/egypt'
     | '/faq'
+    | '/gallery'
     | '/international-tours'
     | '/travel-insurance'
     | '/visa'
@@ -299,6 +311,7 @@ export interface RootRouteChildren {
   DomesticToursRoute: typeof DomesticToursRoute
   EgyptRoute: typeof EgyptRoute
   FaqRoute: typeof FaqRoute
+  GalleryRoute: typeof GalleryRoute
   InternationalToursRoute: typeof InternationalToursRoute
   TravelInsuranceRoute: typeof TravelInsuranceRoute
   VisaRoute: typeof VisaRoute
@@ -326,6 +339,13 @@ declare module '@tanstack/react-router' {
       path: '/international-tours'
       fullPath: '/international-tours'
       preLoaderRoute: typeof InternationalToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -528,6 +548,7 @@ const rootRouteChildren: RootRouteChildren = {
   DomesticToursRoute: DomesticToursRoute,
   EgyptRoute: EgyptRoute,
   FaqRoute: FaqRoute,
+  GalleryRoute: GalleryRoute,
   InternationalToursRoute: InternationalToursRoute,
   TravelInsuranceRoute: TravelInsuranceRoute,
   VisaRoute: VisaRoute,
