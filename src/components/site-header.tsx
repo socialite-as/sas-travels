@@ -12,7 +12,8 @@ const nav = [
   { to: "/international-tours", label: "International" },
   { to: "/egypt", label: "Egypt" },
   { to: "/destinations", label: "Destinations" },
-  { to: "/blogs", label: "Blog" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/blogs", label: "Journal" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
