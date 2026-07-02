@@ -22,7 +22,7 @@ export type Tour = {
   rating: number;
   reviewsCount: number;
   image: string;
-  highlights: string[];
+  highlights?: string[];
   featured?: boolean;
 };
 
