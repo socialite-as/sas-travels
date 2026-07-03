@@ -650,7 +650,10 @@ export type Database = {
       tour_packages: {
         Row: {
           archived: boolean
+          availability: Json | null
+          cancellation_policy: string | null
           category_id: string | null
+          cities: Json | null
           city_id: string | null
           country_id: string | null
           cover_image: string | null
@@ -662,22 +665,36 @@ export type Database = {
           duration_days: number
           duration_nights: number
           exclusions: Json
+          faqs: Json | null
           featured: boolean
+          flights: Json | null
+          highlights: Json | null
+          hotels: Json | null
           id: string
           images: Json
           inclusions: Json
           is_domestic: boolean
           itinerary: Json
+          map_lat: number | null
+          map_lng: number | null
+          map_zoom: number | null
           max_group_size: number | null
+          meals: Json | null
+          meta_description: string | null
+          meta_title: string | null
           price: number
           slug: string
           summary: string | null
           title: string
+          transportation: Json | null
           updated_at: string
         }
         Insert: {
           archived?: boolean
+          availability?: Json | null
+          cancellation_policy?: string | null
           category_id?: string | null
+          cities?: Json | null
           city_id?: string | null
           country_id?: string | null
           cover_image?: string | null
@@ -689,22 +706,36 @@ export type Database = {
           duration_days?: number
           duration_nights?: number
           exclusions?: Json
+          faqs?: Json | null
           featured?: boolean
+          flights?: Json | null
+          highlights?: Json | null
+          hotels?: Json | null
           id?: string
           images?: Json
           inclusions?: Json
           is_domestic?: boolean
           itinerary?: Json
+          map_lat?: number | null
+          map_lng?: number | null
+          map_zoom?: number | null
           max_group_size?: number | null
+          meals?: Json | null
+          meta_description?: string | null
+          meta_title?: string | null
           price?: number
           slug: string
           summary?: string | null
           title: string
+          transportation?: Json | null
           updated_at?: string
         }
         Update: {
           archived?: boolean
+          availability?: Json | null
+          cancellation_policy?: string | null
           category_id?: string | null
+          cities?: Json | null
           city_id?: string | null
           country_id?: string | null
           cover_image?: string | null
@@ -716,17 +747,28 @@ export type Database = {
           duration_days?: number
           duration_nights?: number
           exclusions?: Json
+          faqs?: Json | null
           featured?: boolean
+          flights?: Json | null
+          highlights?: Json | null
+          hotels?: Json | null
           id?: string
           images?: Json
           inclusions?: Json
           is_domestic?: boolean
           itinerary?: Json
+          map_lat?: number | null
+          map_lng?: number | null
+          map_zoom?: number | null
           max_group_size?: number | null
+          meals?: Json | null
+          meta_description?: string | null
+          meta_title?: string | null
           price?: number
           slug?: string
           summary?: string | null
           title?: string
+          transportation?: Json | null
           updated_at?: string
         }
         Relationships: [
