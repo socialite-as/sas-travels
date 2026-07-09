@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Plane, Twitter, Youtube } from "lucide-react";
+import { Instagram, Twitter, Youtube } from "lucide-react";
 import { Newsletter } from "@/components/newsletter";
+import logo from "@/assets/sas-travels-logo.png.asset.json";
+
 
 const groups: { title: string; links: { to: string; label: string }[] }[] = [
   {
@@ -35,19 +37,20 @@ const groups: { title: string; links: { to: string; label: string }[] }[] = [
 export function SiteFooter() {
   return (
     <footer className="border-t bg-muted/30">
-      <div className="container-x py-16">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div className="container-x py-20">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
-            <Link to="/" className="flex items-center gap-2 font-display text-xl font-semibold">
-              <Plane className="h-5 w-5 text-gold" />
-              <span>Wanderly</span>
+            <Link to="/" className="flex items-center gap-2.5 font-display text-xl font-semibold" aria-label="SAS Travels home">
+              <img src={logo.url} alt="" width={36} height={36} className="h-9 w-9" loading="lazy" decoding="async" />
+              <span>SAS Travels</span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-muted-foreground">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               A specialist travel studio designing rare journeys across Egypt and the world.
             </p>
-            <div className="mt-6 max-w-sm">
-              <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Get the dispatch</div>
+            <div className="mt-8 max-w-sm">
+              <div className="mb-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Get the dispatch</div>
               <Newsletter compact />
+
             </div>
           </div>
           {groups.map((g) => (
