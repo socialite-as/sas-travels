@@ -48,7 +48,7 @@ export function Newsletter({ compact = false }: { compact?: boolean }) {
       <div className="container-x relative grid gap-10 md:grid-cols-2 md:items-center">
         <div>
           <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-gold">
-            <Mail className="h-3.5 w-3.5" /> The Wanderly dispatch
+            <Mail className="h-3.5 w-3.5" /> The SAS Travels dispatch
           </span>
           <h3 className="mt-4 font-display text-3xl font-semibold md:text-4xl">
             Rare journeys, delivered monthly.

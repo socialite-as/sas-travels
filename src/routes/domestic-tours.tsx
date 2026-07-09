@@ -6,7 +6,7 @@ import { tours } from "@/lib/mock/data";
 
 export const Route = createFileRoute("/domestic-tours")({
   head: () => ({ meta: [
-    { title: "Domestic Tours — Wanderly" },
+    { title: "Domestic Tours — SAS Travels" },
     { name: "description", content: "Escape close to home. Handcrafted domestic tours across Egypt's oases, coasts, and mountains." },
   ]}),
   component: DomesticTours,

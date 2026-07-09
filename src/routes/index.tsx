@@ -13,9 +13,9 @@ import { destinations, tours } from "@/lib/mock/data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Wanderly — Rare journeys, thoughtfully crafted" },
+      { title: "SAS Travels — Rare journeys, thoughtfully crafted" },
       { name: "description", content: "Luxury tours across Egypt and the world. Signature itineraries, private guides, and custom-built escapes." },
-      { property: "og:title", content: "Wanderly — Rare journeys, thoughtfully crafted" },
+      { property: "og:title", content: "SAS Travels — Rare journeys, thoughtfully crafted" },
       { property: "og:description", content: "Signature tours across Egypt and the world." },
       { property: "og:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
       { name: "twitter:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
@@ -117,7 +117,7 @@ function Home() {
       <section className="py-20 md:py-28">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Why Wanderly"
+            eyebrow="Why SAS Travels"
             title="The difference is in the detail"
             align="center"
           />

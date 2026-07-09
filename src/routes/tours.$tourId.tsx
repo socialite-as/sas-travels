@@ -20,9 +20,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/tours/$tourId")({
   head: ({ params }) => ({
     meta: [
-      { title: `${params.tourId.replace(/-/g, " ")} — Wanderly` },
+      { title: `${params.tourId.replace(/-/g, " ")} — SAS Travels` },
       { name: "description", content: `Explore this curated tour — full itinerary, hotels, and availability.` },
-      { property: "og:title", content: `${params.tourId.replace(/-/g, " ")} — Wanderly` },
+      { property: "og:title", content: `${params.tourId.replace(/-/g, " ")} — SAS Travels` },
       { property: "og:url", content: `/tours/${params.tourId}` },
       { property: "og:type", content: "product" },
     ],

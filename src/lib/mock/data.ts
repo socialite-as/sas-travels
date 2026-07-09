@@ -100,7 +100,7 @@ export const testimonials: Testimonial[] = [
     quote: "Their Egypt itinerary showed us corners of Luxor no one else would think to include. Truly world-class.",
     avatar: img("photo-1500648767791-00dcc994a43e", 200), rating: 5 },
   { id: "r3", name: "Sofia Rinaldi", location: "Milan, Italy",
-    quote: "The catamaran through the Cyclades was pure magic. I'll book with Wanderly again and again.",
+    quote: "The catamaran through the Cyclades was pure magic. I'll book with SAS Travels again and again.",
     avatar: img("photo-1438761681033-6461ffad8d80", 200), rating: 5 },
 ];
 

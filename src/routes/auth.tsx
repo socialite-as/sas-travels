@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/auth")({
-  head: () => ({ meta: [{ title: "Sign in — Wanderly" }, { name: "description", content: "Sign in or create your Wanderly account." }] }),
+  head: () => ({ meta: [{ title: "Sign in — SAS Travels" }, { name: "description", content: "Sign in or create your SAS Travels account." }] }),
   component: AuthPage,
 });
 
@@ -46,7 +46,7 @@ function AuthPage() {
     <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-4 py-12">
       <Card className="w-full">
         <CardHeader>
-          <CardTitle>Welcome to Wanderly</CardTitle>
+          <CardTitle>Welcome to SAS Travels</CardTitle>
           <CardDescription>Sign in or create an account to start planning.</CardDescription>
         </CardHeader>
         <CardContent>

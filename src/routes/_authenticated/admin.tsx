@@ -6,7 +6,7 @@ import { useRoles } from "@/lib/use-role";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/admin")({
-  head: () => ({ meta: [{ title: "Admin — Wanderly" }] }),
+  head: () => ({ meta: [{ title: "Admin — SAS Travels" }] }),
   component: AdminLayout,
 });
 

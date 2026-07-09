@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/custom-itinerary")({
   head: () => ({ meta: [
-    { title: "Custom Itinerary — Wanderly" },
+    { title: "Custom Itinerary — SAS Travels" },
     { name: "description", content: "Tell us your dream trip and a specialist will design a private itinerary — usually within 48 hours." },
   ]}),
   component: Custom,

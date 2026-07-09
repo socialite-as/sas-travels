@@ -6,7 +6,7 @@ import { tours } from "@/lib/mock/data";
 
 export const Route = createFileRoute("/egypt")({
   head: () => ({ meta: [
-    { title: "Egypt Tours — Wanderly" },
+    { title: "Egypt Tours — SAS Travels" },
     { name: "description", content: "Egypt specialists since 2010. Pyramids, Nile cruises, Red Sea, and Sinai." },
     { property: "og:image", content: "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1600&q=80&auto=format&fit=crop" },
   ]}),
