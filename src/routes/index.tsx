@@ -36,36 +36,39 @@ function Home() {
           <img
             src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1900&q=80&auto=format&fit=crop"
             alt=""
-            className="h-full w-full object-cover"
+            aria-hidden="true"
+            fetchPriority="high"
+            className="h-full w-full object-cover animate-ken-burns"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/50 to-ink/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/45 to-ink/90" />
         </div>
-        <div className="container-x relative flex min-h-[85vh] flex-col justify-end py-20 md:py-28">
-          <div className="max-w-3xl text-cream animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <span className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-cream backdrop-blur">
+        <div className="container-x relative flex min-h-[92vh] flex-col justify-end py-24 md:py-32">
+          <div className="max-w-3xl text-cream animate-fade-up">
+            <span className="inline-flex items-center gap-2 rounded-full border border-cream/25 bg-cream/10 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.28em] text-cream backdrop-blur">
               <Sparkles className="h-3 w-3 text-gold" /> 2026 collection · Now booking
             </span>
-            <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.95] text-balance md:text-6xl lg:text-7xl">
-              Rare journeys,<br />thoughtfully crafted.
+            <h1 className="mt-8 font-display text-5xl font-medium leading-[0.95] text-balance md:text-7xl lg:text-8xl">
+              Rare journeys,<br /><em className="not-italic text-gold">thoughtfully</em> crafted.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-cream/85">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream/85 md:text-xl">
               From the shadow of the pyramids to the cliffs of Santorini — signature itineraries,
               private guides, and every detail considered.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90">
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="rounded-full bg-gold px-6 text-gold-foreground shadow-lg shadow-gold/20 hover:bg-gold/90">
                 <Link to="/destinations">Explore destinations <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-cream/30 bg-cream/5 text-cream hover:bg-cream/15 hover:text-cream">
+              <Button asChild size="lg" variant="outline" className="rounded-full border-cream/30 bg-cream/5 px-6 text-cream hover:bg-cream/15 hover:text-cream">
                 <Link to="/custom-itinerary">Design a custom trip</Link>
               </Button>
             </div>
           </div>
-          <div className="relative z-10 mt-12">
+          <div className="relative z-10 mt-16">
             <SearchBar />
           </div>
         </div>
       </section>
+
 
       <StatsStrip />
 
