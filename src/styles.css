@@ -5,10 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Wanderly luxury design system.
- * Deep midnight teal + warm gold + parchment cream.
+ * SAS Travels luxury design system.
+ * Deep teal + warm gold + parchment cream.
  * Display: Fraunces (serif), Body: Inter.
  */
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -148,48 +149,66 @@
 @utility container-x {
   margin-inline: auto;
   max-width: 80rem;
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
 }
+@media (min-width: 768px) { .container-x { padding-inline: 2rem; } }
+@media (min-width: 1280px) { .container-x { padding-inline: 3rem; } }
 
 @utility hover-lift {
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -20px color-mix(in oklab, var(--ink) 25%, transparent);
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -25px color-mix(in oklab, var(--ink) 30%, transparent);
   }
 }
 
-@utility text-balance {
-  text-wrap: balance;
-}
+@utility text-balance { text-wrap: balance; }
+@utility text-pretty { text-wrap: pretty; }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
+  * { border-color: var(--color-border); }
   html {
     font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
-
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-feature-settings: "cv11", "ss01";
+    font-feature-settings: "cv11", "ss01", "ss03";
   }
-
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    font-weight: 500;
   }
+  ::selection { background: color-mix(in oklab, var(--gold) 40%, transparent); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 4px; }
+  img { content-visibility: auto; }
 }
 
-@keyframes wanderly-float {
+@keyframes sas-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
-@keyframes wanderly-shimmer {
-  0% { background-position: -400px 0; }
-  100% { background-position: 400px 0; }
+@keyframes sas-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.animate-float { animation: wanderly-float 6s ease-in-out infinite; }
+@keyframes sas-ken-burns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+.animate-float { animation: sas-float 6s ease-in-out infinite; }
+.animate-fade-up { animation: sas-fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.animate-ken-burns { animation: sas-ken-burns 20s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

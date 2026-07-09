@@ -11,7 +11,7 @@ import { useRoles } from "@/lib/use-role";
 import { makeMeAdmin } from "@/lib/admin-seed.functions";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — Wanderly" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — SAS Travels" }] }),
   component: Dashboard,
 });
 

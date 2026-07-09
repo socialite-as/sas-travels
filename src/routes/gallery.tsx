@@ -3,8 +3,8 @@ import { galleryImages } from "@/lib/mock/data";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({ meta: [
-    { title: "Gallery — Wanderly" },
-    { name: "description", content: "Postcards from the road — moments captured on Wanderly journeys." },
+    { title: "Gallery — SAS Travels" },
+    { name: "description", content: "Postcards from the road — moments captured on SAS Travels journeys." },
   ]}),
   component: Gallery,
 });
@@ -16,7 +16,7 @@ function Gallery() {
         <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Gallery</span>
         <h1 className="mt-3 font-display text-4xl font-semibold md:text-5xl">Postcards from the road.</h1>
         <p className="mt-4 text-muted-foreground md:text-lg">
-          Moments captured on Wanderly journeys — a mood board for your next escape.
+          Moments captured on SAS Travels journeys — a mood board for your next escape.
         </p>
       </header>
       <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">

@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/blogs/$slug")({
   head: ({ params }) => ({
     meta: [
-      { title: `${params.slug.replace(/-/g, " ")} — Wanderly journal` },
-      { name: "description", content: "Wanderly travel journal." },
+      { title: `${params.slug.replace(/-/g, " ")} — SAS Travels journal` },
+      { name: "description", content: "SAS Travels travel journal." },
     ],
   }),
   component: BlogPost,

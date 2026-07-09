@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/visa")({
   head: () => ({ meta: [
-    { title: "Visa Support — Wanderly" },
+    { title: "Visa Support — SAS Travels" },
     { name: "description", content: "Concierge visa support: e-visas, invitation letters, and consular guidance." },
   ]}),
   component: Visa,
@@ -42,7 +42,7 @@ function Visa() {
           <div>
             <h2 className="font-display text-4xl font-semibold text-balance md:text-5xl">Included with every tour.</h2>
             <p className="mt-4 max-w-md text-primary-foreground/85 md:text-lg">
-              Visa support is complimentary for all Wanderly bookings. Booking elsewhere? We offer a standalone visa service too.
+              Visa support is complimentary for all SAS Travels bookings. Booking elsewhere? We offer a standalone visa service too.
             </p>
             <Button asChild size="lg" className="mt-6 bg-gold text-gold-foreground hover:bg-gold/90">
               <Link to="/contact">Request visa help</Link>

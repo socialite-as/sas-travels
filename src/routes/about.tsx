@@ -7,8 +7,8 @@ import { SectionHeading } from "@/components/section-heading";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
-    { title: "About — Wanderly" },
-    { name: "description", content: "Fifteen years designing meaningful journeys. Meet the specialists behind Wanderly." },
+    { title: "About — SAS Travels" },
+    { name: "description", content: "Fifteen years designing meaningful journeys. Meet the specialists behind SAS Travels." },
   ]}),
   component: About,
 });
@@ -22,12 +22,12 @@ function About() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/60 to-ink/90" />
         </div>
         <div className="container-x relative py-24 text-cream md:py-32">
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">About Wanderly</span>
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">About SAS Travels</span>
           <h1 className="mt-4 max-w-3xl font-display text-5xl font-semibold text-balance md:text-6xl">
             We plan the trips we'd want to take.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-cream/85">
-            Wanderly is a specialist travel studio founded on a simple idea — the best trips are quietly designed,
+            SAS Travels is a specialist travel studio founded on a simple idea — the best trips are quietly designed,
             beautifully paced, and remembered forever.
           </p>
         </div>

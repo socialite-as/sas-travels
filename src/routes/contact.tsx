@@ -10,8 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
-    { title: "Contact — Wanderly" },
-    { name: "description", content: "Speak with a Wanderly travel specialist. We reply within one business day." },
+    { title: "Contact — SAS Travels" },
+    { name: "description", content: "Speak with a SAS Travels travel specialist. We reply within one business day." },
   ]}),
   component: ContactPage,
 });
