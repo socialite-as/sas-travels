@@ -69,10 +69,10 @@ function ContactPage() {
 
         <aside className="space-y-4">
           {[
-            { icon: Phone, title: "Call", value: "+20 100 000 0000" },
-            { icon: Mail, title: "Email", value: "hello@wanderly.travel" },
-            { icon: MessageCircle, title: "WhatsApp", value: "+20 100 000 0000" },
-            { icon: MapPin, title: "Studio", value: "Zamalek, Cairo · Egypt" },
+            { icon: Phone, title: "Call", value: "+91 72047 51900" },
+            { icon: Mail, title: "Email", value: "info@sastoursandtravels.com" },
+            { icon: MessageCircle, title: "WhatsApp", value: "+91 72047 51900" },
+            { icon: MapPin, title: "Studio", value: "Udupi, Karnataka · India" },
           ].map(({ icon: Icon, title, value }) => (
             <div key={title} className="flex items-start gap-4 rounded-2xl border bg-card p-5">
               <div className="grid h-10 w-10 place-items-center rounded-full bg-gold/15 text-gold"><Icon className="h-4 w-4" /></div>

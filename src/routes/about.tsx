@@ -44,7 +44,7 @@ function About() {
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Our story</span>
             <h2 className="mt-3 font-display text-4xl font-semibold text-balance">Fifteen years, one obsession.</h2>
             <p className="mt-5 text-muted-foreground md:text-lg">
-              We started in a small Cairo office in 2010 with three Egyptologists and a promise: to make travel more
+              We started in a small office in 2016 with three Egyptologists and a promise: to make travel more
               intimate, more informed, and more human. Today we design trips across 42 countries — and the promise hasn't changed.
             </p>
             <p className="mt-4 text-muted-foreground md:text-lg">
