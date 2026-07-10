@@ -67,7 +67,7 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t pt-8 text-xs text-muted-foreground md:flex-row">
-          <div>© {new Date().getFullYear()} SAS Travels · Crafted with care in Cairo & beyond.</div>
+          <div>© {new Date().getFullYear()} SAS Travels</div>
 
           <div className="flex gap-4">
             <a href="#" aria-label="Instagram" className="hover:text-primary"><Instagram className="h-4 w-4" /></a>

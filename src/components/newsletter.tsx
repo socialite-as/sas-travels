@@ -54,7 +54,7 @@ export function Newsletter({ compact = false }: { compact?: boolean }) {
             Rare journeys, delivered monthly.
           </h3>
           <p className="mt-3 max-w-md text-primary-foreground/80">
-            Sunrise cruises, hidden ryokans, and first-look itineraries. No spam — one thoughtful email per month.
+            Sunrise cruises, hidden ryokans, and first-look itineraries. No spam, one thoughtful email per month.
           </p>
         </div>
         <form onSubmit={submit} className="flex w-full flex-col gap-3 sm:flex-row">
