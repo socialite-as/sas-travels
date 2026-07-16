@@ -1,15 +1,29 @@
-## Problem
+## What I found
 
-You're signed in as an admin, and the admin RLS policies (`is_editor_or_admin`) are correct — but every write from the CMS still fails. Root cause: none of the tables in the `public` schema have any Data API GRANTs (`SELECT/INSERT/UPDATE/DELETE`) to `anon`, `authenticated`, or `service_role`. Supabase's Data API (PostgREST) requires explicit GRANTs on top of RLS. Without them the API returns "permission denied" no matter what role you're in, so the admin form's insert/update/delete never even reaches the RLS policy check.
+- The hosted backend is healthy.
+- Table-level API permissions are now present for the main CMS tables.
+- The remaining failure is likely one of these:
+  - the admin/editor role check is failing for the signed-in user,
+  - required fields are missing from the generic CMS form payload,
+  - or the UI is hiding the exact backend error in a toast that we need to surface more clearly.
 
-This also affects public reads on your tour/blog/gallery pages — they currently work only because listing pages still read from the local mock file, not from the database.
+## Plan
 
-## Fix
+1. **Reproduce the CMS add error with the current signed-in preview session**
+   - Open the admin CMS in the live preview.
+   - Try creating a simple record in one CMS table, starting with Categories or Countries because they have the fewest required fields.
+   - Capture the exact database/API error message and request status.
 
-One migration that adds the correct Data API grants to every `public` table, tuned to each table's existing RLS:
+2. **Verify the user’s effective admin/editor access**
+   - Confirm the signed-in user has an `admin` or `editor` role in the backend.
+   - Confirm the frontend role hook is reading that role correctly.
 
-- **Public-facing tables** (`tour_packages`, `blogs`, `countries`, `cities`, `gallery`, `testimonials`, `categories`): grant `SELECT` to `anon`, full CRUD to `authenticated`, `ALL` to `service_role`. RLS still restricts writes to editors/admins.
-- **User-owned tables** (`bookings`, `custom_itinerary_requests`, `reviews`, `wishlist`, `notifications`, `user_documents`, `profiles`, `payments`): full CRUD to `authenticated`, `ALL` to `service_role`, NO `anon` grant (RLS scopes to `auth.uid()`).
-- **Auth-only tables** (`user_roles`, `coupons`): `SELECT` to `authenticated` (needed by `useRoles` hook & coupon lookups), `ALL` to `service_role`, no `anon`.
+3. **Fix the actual failing layer**
+   - If it is role-related: repair the role grant/bootstrap path so the current admin user passes the CMS write policy.
+   - If it is payload-related: update the generic CMS form/resource config so required fields/default values match the database schema.
+   - If it is a hidden error/UI issue: improve the CMS save error display so it clearly shows what field or permission failed.
 
-Nothing else changes — no schema, no RLS, no app code. After the migration, the admin dashboard will be able to create/edit/delete tours, blogs, countries, cities, gallery items, testimonials, and categories, and public pages will be able to read directly from the database when you're ready to switch listings off the mock file.
+4. **Validate the fix**
+   - Create a test CMS record successfully.
+   - Confirm it appears in the admin list.
+   - Confirm no broad public write access is introduced.

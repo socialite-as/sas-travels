@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { supabase } from "@/integrations/supabase/client";
+import { getAdminResourceRecord, saveAdminResourceRecord } from "@/lib/admin-resource.functions";
 import type { Resource, ResourceField } from "@/lib/admin/resources";
 
 type Props = {
@@ -19,6 +20,8 @@ type Row = Record<string, unknown>;
 
 export function ResourceForm({ resource, recordId }: Props) {
   const navigate = useNavigate();
+  const getRecord = useServerFn(getAdminResourceRecord);
+  const saveRecord = useServerFn(saveAdminResourceRecord);
   const [values, setValues] = useState<Row>({});
   const [loading, setLoading] = useState(!!recordId);
   const [saving, setSaving] = useState(false);
@@ -26,16 +29,16 @@ export function ResourceForm({ resource, recordId }: Props) {
   useEffect(() => {
     if (!recordId) return;
     (async () => {
-      const { data, error } = await supabase
-        .from(resource.table as never)
-        .select("*")
-        .eq("id", recordId)
-        .maybeSingle();
-      if (error) toast.error(error.message);
-      if (data) setValues(data as Row);
-      setLoading(false);
+      try {
+        const data = await getRecord({ data: { resourceKey: resource.key, id: recordId } });
+        if (data) setValues(data as Row);
+      } catch (error) {
+        toast.error(error instanceof Error ? error.message : `Could not load ${resource.singular.toLowerCase()}`);
+      } finally {
+        setLoading(false);
+      }
     })();
-  }, [recordId, resource.table]);
+  }, [getRecord, recordId, resource.key, resource.singular]);
 
   const setField = (name: string, v: unknown) => setValues((prev) => ({ ...prev, [name]: v }));
 
@@ -71,14 +74,15 @@ export function ResourceForm({ resource, recordId }: Props) {
       }
     }
 
-    const table = resource.table as never;
-    const res = recordId
-      ? await supabase.from(table).update(payload as never).eq("id", recordId)
-      : await supabase.from(table).insert(payload as never);
-    setSaving(false);
-    if (res.error) return toast.error(res.error.message);
-    toast.success(`${resource.singular} ${recordId ? "updated" : "created"}`);
-    navigate({ to: "/admin/$resource", params: { resource: resource.key } });
+    try {
+      await saveRecord({ data: { resourceKey: resource.key, id: recordId, payload } });
+      toast.success(`${resource.singular} ${recordId ? "updated" : "created"}`);
+      navigate({ to: "/admin/$resource", params: { resource: resource.key } });
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : `Could not save ${resource.singular.toLowerCase()}`);
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (loading) return <p className="text-muted-foreground">Loading…</p>;

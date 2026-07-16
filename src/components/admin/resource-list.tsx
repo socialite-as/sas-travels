@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { Pencil, Trash2, Archive, ArchiveRestore, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,43 +17,52 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { supabase } from "@/integrations/supabase/client";
+import { deleteAdminResourceRecord, listAdminResourceRows, setAdminResourceArchived } from "@/lib/admin-resource.functions";
 import type { Resource } from "@/lib/admin/resources";
 
 type Row = Record<string, unknown> & { id: string };
 
 export function ResourceList({ resource }: { resource: Resource }) {
+  const listRows = useServerFn(listAdminResourceRows);
+  const deleteRecord = useServerFn(deleteAdminResourceRecord);
+  const setArchived = useServerFn(setAdminResourceArchived);
   const [rows, setRows] = useState<Row[]>([]);
   const [loading, setLoading] = useState(true);
   const hasArchived = resource.fields.some((f) => f.name === "archived");
 
   const load = useCallback(async () => {
     setLoading(true);
-    let q = supabase.from(resource.table as never).select("*").limit(200);
-    if (resource.orderBy) q = q.order(resource.orderBy.column, { ascending: !!resource.orderBy.ascending });
-    const { data, error } = await q;
-    if (error) toast.error(error.message);
-    setRows((data as Row[]) ?? []);
-    setLoading(false);
-  }, [resource]);
+    try {
+      const data = await listRows({ data: { resourceKey: resource.key } });
+      setRows((data as Row[]) ?? []);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : `Could not load ${resource.label.toLowerCase()}`);
+      setRows([]);
+    } finally {
+      setLoading(false);
+    }
+  }, [listRows, resource.key, resource.label]);
 
   useEffect(() => { load(); }, [load]);
 
   const del = async (id: string) => {
-    const { error } = await supabase.from(resource.table as never).delete().eq("id", id);
-    if (error) return toast.error(error.message);
-    toast.success("Deleted");
-    load();
+    try {
+      await deleteRecord({ data: { resourceKey: resource.key, id } });
+      toast.success("Deleted");
+      load();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Could not delete record");
+    }
   };
 
   const toggleArchive = async (row: Row) => {
-    const { error } = await supabase
-      .from(resource.table as never)
-      .update({ archived: !row.archived } as never)
-      .eq("id", row.id);
-    if (error) return toast.error(error.message);
-    toast.success(row.archived ? "Restored" : "Archived");
-    load();
+    try {
+      await setArchived({ data: { resourceKey: resource.key, id: row.id, archived: !row.archived } });
+      toast.success(row.archived ? "Restored" : "Archived");
+      load();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Could not update archive status");
+    }
   };
 
   const listCols = resource.fields.filter((f) => f.listVisible);
