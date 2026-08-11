@@ -85,7 +85,7 @@ function TourDetails() {
   const faqs = asArray<{ question?: string; q?: string; answer?: string; a?: string }>(tour.faqs);
   const cities = asArray<string>(tour.cities);
 
-  const currency = tour.currency ?? "$";
+  const currency = tour.currency ?? "₹";
   const displayPrice = tour.discount_price ?? tour.price;
   const shareUrl = typeof window !== "undefined" ? window.location.href : `/tours/${tour.slug}`;
 
@@ -296,7 +296,7 @@ function TourDetails() {
                           <td className="p-3">{a.start_date}</td>
                           <td className="p-3">{a.end_date}</td>
                           <td className="p-3">{a.seats ?? "—"}</td>
-                          <td className="p-3 text-right font-semibold">{a.price ? `${currency}${a.price.toLocaleString()}` : "—"}</td>
+                          <td className="p-3 text-right font-semibold">{a.price ? `${currency}${a.price.toLocaleString("en-IN")}` : "—"}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -347,11 +347,11 @@ function TourDetails() {
                 <div className="text-xs text-muted-foreground">from</div>
                 <div className="flex items-baseline gap-2">
                   <div className="font-display text-4xl font-semibold text-primary">
-                    {currency}{Number(displayPrice).toLocaleString()}
+                    {currency}{Number(displayPrice).toLocaleString("en-IN")}
                   </div>
                   {tour.discount_price && tour.price && (
                     <div className="text-sm text-muted-foreground line-through">
-                      {currency}{Number(tour.price).toLocaleString()}
+                      {currency}{Number(tour.price).toLocaleString("en-IN")}
                     </div>
                   )}
                 </div>

@@ -7,7 +7,7 @@ import { tours } from "@/lib/mock/data";
 export const Route = createFileRoute("/domestic-tours")({
   head: () => ({ meta: [
     { title: "Domestic Tours — SAS Travels" },
-    { name: "description", content: "Escape close to home. Handcrafted domestic tours across Egypt's oases, coasts, and mountains." },
+    { name: "description", content: "Coastal Karnataka and beyond — handcrafted India tours across Udupi, Malpe, Gokarna, Coorg and Kerala." },
   ]}),
   component: DomesticTours,
 });
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/domestic-tours")({
 function DomesticTours() {
   const [filters, setFilters] = useState<FiltersState>(defaultFilters);
   const list = useMemo(() => applyFilters(tours.filter((t) => t.region === "Domestic"), filters), [filters]);
-  return <ToursListing eyebrow="Close to home" title="Domestic tours" description="Oases, coasts, mountain sunrises — Egypt's finest weekend escapes and week-long journeys." filters={filters} setFilters={setFilters} list={list} />;
+  return <ToursListing eyebrow="Close to home" title="India tours" description="Coastal Karnataka at heart — Udupi, Malpe, Gokarna, Murudeshwar and Mangaluru, plus coffee hills and Kerala backwaters." filters={filters} setFilters={setFilters} list={list} />;
 }
 
 export function ToursListing({ eyebrow, title, description, filters, setFilters, list }: {

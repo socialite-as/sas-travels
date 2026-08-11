@@ -22,7 +22,7 @@ export function SearchBar() {
           <input
             value={where}
             onChange={(e) => setWhere(e.target.value)}
-            placeholder="Egypt, Kyoto, Santorini…"
+            placeholder="Udupi, Dubai, Maldives, Bangkok…"
             className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
         </div>

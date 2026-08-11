@@ -41,7 +41,7 @@ export function RelatedTours({ items }: { items: Item[] }) {
                   ) : <span />}
                   {t.price != null && (
                     <span className="font-semibold text-primary">
-                      {t.currency ?? "$"}{Number(t.price).toLocaleString()}
+                      {t.currency ?? "₹"}{Number(t.price).toLocaleString("en-IN")}
                     </span>
                   )}
                 </div>
