@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 export type FiltersState = {
   query: string;
   duration: "all" | "short" | "medium" | "long";
-  price: "all" | "under1500" | "1500to3000" | "over3000";
+  price: "all" | "under25k" | "25kto75k" | "over75k";
   sort: "recommended" | "price-asc" | "price-desc" | "duration";
 };
+
 
 export const defaultFilters: FiltersState = {
   query: "",
@@ -57,9 +58,10 @@ export function TourFilters({
             className="h-10 rounded-md border bg-background px-3 text-sm"
           >
             <option value="all">Any price</option>
-            <option value="under1500">Under $1,500</option>
-            <option value="1500to3000">$1,500–$3,000</option>
-            <option value="over3000">$3,000+</option>
+            <option value="under25k">Under ₹25,000</option>
+            <option value="25kto75k">₹25,000–₹75,000</option>
+            <option value="over75k">₹75,000+</option>
+
           </select>
           <select
             value={value.sort}
@@ -99,9 +101,10 @@ export function applyFilters<T extends { title: string; destination: string; pri
     if (f.duration === "short" && t.durationDays > 5) return false;
     if (f.duration === "medium" && (t.durationDays < 6 || t.durationDays > 8)) return false;
     if (f.duration === "long" && t.durationDays < 9) return false;
-    if (f.price === "under1500" && t.priceFrom >= 1500) return false;
-    if (f.price === "1500to3000" && (t.priceFrom < 1500 || t.priceFrom > 3000)) return false;
-    if (f.price === "over3000" && t.priceFrom <= 3000) return false;
+    if (f.price === "under25k" && t.priceFrom >= 25000) return false;
+    if (f.price === "25kto75k" && (t.priceFrom < 25000 || t.priceFrom > 75000)) return false;
+    if (f.price === "over75k" && t.priceFrom <= 75000) return false;
+
     return true;
   });
   if (f.sort === "price-asc") out = [...out].sort((a, b) => a.priceFrom - b.priceFrom);

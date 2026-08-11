@@ -42,8 +42,9 @@ export function TourCard({ tour }: { tour: Tour }) {
           <div className="text-right">
             <div className="text-xs text-muted-foreground">from</div>
             <div className="font-display text-xl font-semibold text-primary">
-              ${tour.priceFrom.toLocaleString()}
+              ₹{tour.priceFrom.toLocaleString("en-IN")}
             </div>
+
           </div>
         </div>
       </div>

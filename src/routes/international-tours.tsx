@@ -11,7 +11,8 @@ export const Route = createFileRoute("/international-tours")({
   ]}),
   component: () => {
     const [filters, setFilters] = useState<FiltersState>(defaultFilters);
-    const list = useMemo(() => applyFilters(tours.filter((t) => t.region === "International"), filters), [filters]);
-    return <ToursListing eyebrow="Beyond borders" title="International tours" description="Six continents, one standard — private guides, exceptional stays, and itineraries you'll remember for life." filters={filters} setFilters={setFilters} list={list} />;
+    const list = useMemo(() => applyFilters(tours.filter((t) => t.region !== "Domestic"), filters), [filters]);
+    return <ToursListing eyebrow="Beyond borders" title="International tours" description="Egypt, UAE, Maldives, Thailand and Malaysia — visa support, curated stays, and itineraries built for Indian travellers." filters={filters} setFilters={setFilters} list={list} />;
+
   },
 });
