@@ -85,7 +85,7 @@ function TourDetails() {
   const faqs = asArray<{ question?: string; q?: string; answer?: string; a?: string }>(tour.faqs);
   const cities = asArray<string>(tour.cities);
 
-  const currency = tour.currency ?? "$";
+  const currency = tour.currency ?? "₹";
   const displayPrice = tour.discount_price ?? tour.price;
   const shareUrl = typeof window !== "undefined" ? window.location.href : `/tours/${tour.slug}`;
 
