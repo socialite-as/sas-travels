@@ -52,9 +52,10 @@ function Home() {
               Rare journeys,<br /><em className="not-italic text-gold">thoughtfully</em> crafted.
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-cream/85 md:text-xl">
-              From the shadow of the pyramids to the cliffs of Santorini — signature itineraries,
-              private guides, and every detail considered.
+              From the beaches of coastal Karnataka to Dubai, the Maldives and the Nile — signature
+              itineraries, private guides, and every detail considered.
             </p>
+
             <div className="mt-10 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full bg-gold px-6 text-gold-foreground shadow-lg shadow-gold/20 hover:bg-gold/90">
                 <Link to="/destinations">Explore destinations <ArrowRight className="ml-1 h-4 w-4" /></Link>
@@ -105,7 +106,7 @@ function Home() {
             description="Curated by our specialists, refined by feedback from hundreds of travelers."
             action={
               <div className="hidden gap-2 md:flex">
-                <Button asChild variant="outline"><Link to="/domestic-tours">Domestic</Link></Button>
+                <Button asChild variant="outline"><Link to="/domestic-tours">India</Link></Button>
                 <Button asChild variant="outline"><Link to="/international-tours">International</Link></Button>
                 <Button asChild><Link to="/egypt">Egypt</Link></Button>
               </div>
@@ -146,30 +147,32 @@ function Home() {
 
       <TestimonialsSection />
 
-      {/* EGYPT SPOTLIGHT */}
+      {/* COASTAL KARNATAKA SPOTLIGHT */}
       <section className="relative overflow-hidden py-20 md:py-28">
         <div className="container-x grid items-center gap-12 md:grid-cols-2">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <img
-              src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1200&q=80&auto=format&fit=crop"
-              alt="Luxor temples"
+              src="https://images.unsplash.com/photo-1600100397608-f010cca67aa1?w=1200&q=80&auto=format&fit=crop"
+              alt="Coastal Karnataka beaches near Udupi"
               className="h-full w-full object-cover"
             />
           </div>
           <div>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Egypt specialists</span>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Coastal Karnataka specialists</span>
             <h2 className="mt-3 font-display text-4xl font-semibold text-balance md:text-5xl">
-              7,000 years of stories, told the way they deserve.
+              Our home coast, known road by road.
             </h2>
             <p className="mt-5 text-muted-foreground md:text-lg">
-              We've spent 15 years crafting the finest way to experience Egypt — Cairo's chaos, the Nile's silence,
-              and Sinai's stars. Every guide is a licensed Egyptologist. Every detail, ours to worry about.
+              Based in Udupi, we've spent years perfecting the Karavali circuit — Malpe and St. Mary's Island,
+              Gokarna's cliffs, Murudeshwar, Kollur and the coffee hills above. Local guides, trusted stays,
+              transparent INR pricing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg"><Link to="/egypt">Explore Egypt tours</Link></Button>
+              <Button asChild size="lg"><Link to="/domestic-tours">Explore India tours</Link></Button>
               <Button asChild variant="outline" size="lg"><Link to="/custom-itinerary">Design your own</Link></Button>
             </div>
           </div>
+
         </div>
       </section>
 
