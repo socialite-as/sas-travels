@@ -10,7 +10,7 @@ export const Route = createFileRoute("/destinations")({
   head: () => ({ meta: [
     { title: "Destinations — SAS Travels" },
     { name: "description", content: "Every country, city, and hidden gem we cover — from Cairo to Kyoto." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/destinations" }] }),
   component: DestinationsPage,
 });
 

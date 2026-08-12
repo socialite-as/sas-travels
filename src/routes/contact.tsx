@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
     { title: "Contact — SAS Travels" },
     { name: "description", content: "Speak with a SAS Travels travel specialist. We reply within one business day." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/contact" }] }),
   component: ContactPage,
 });
 

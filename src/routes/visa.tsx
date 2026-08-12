@@ -6,7 +6,7 @@ export const Route = createFileRoute("/visa")({
   head: () => ({ meta: [
     { title: "Visa Support — SAS Travels" },
     { name: "description", content: "Concierge visa support: e-visas, invitation letters, and consular guidance." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/visa" }] }),
   component: Visa,
 });
 
