@@ -40,7 +40,7 @@ function TravelInsurance() {
         ].map(({ icon: Icon, title, desc }) => (
           <div key={title} className="rounded-2xl border bg-card p-6">
             <div className="grid h-11 w-11 place-items-center rounded-full bg-gold/15 text-gold"><Icon className="h-5 w-5" /></div>
-            <h3 className="mt-4 font-display text-lg font-semibold">{title}</h3>
+            <h2 className="mt-4 font-display text-lg font-semibold">{title}</h2>
             <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
           </div>
         ))}
