@@ -3,12 +3,22 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/blogs/$slug")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `${params.slug.replace(/-/g, " ")} — SAS Travels journal` },
-      { name: "description", content: "SAS Travels travel journal." },
-    ],
-  }),
+  head: ({ params }) => {
+    const name = params.slug.replace(/-/g, " ");
+    const description = `${name.charAt(0).toUpperCase()}${name.slice(1)} — a field note from the SAS Travels journal, with specialist tips, places to stay and how to fit it into your itinerary.`;
+    const url = `https://sas-travels.lovable.app/blogs/${params.slug}`;
+    return {
+      meta: [
+        { title: `${name} — SAS Travels journal` },
+        { name: "description", content: description },
+        { property: "og:title", content: `${name} — SAS Travels journal` },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+    };
+  },
   component: BlogPost,
 });
 

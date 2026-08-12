@@ -20,7 +20,9 @@ export const Route = createFileRoute("/")({
 
       { property: "og:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
       { name: "twitter:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
+      { property: "og:url", content: "https://sas-travels.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/" }],
   }),
   component: Home,
 });
