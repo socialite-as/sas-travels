@@ -42,7 +42,7 @@ const img = (id: string, w = 1200) =>
 
 export const destinations: Destination[] = [
   { slug: "udupi-malpe", name: "Udupi & Malpe", country: "India", region: "Domestic",
-    tagline: "Temple town mornings, St. Mary's Island afternoons", image: img("photo-1600100397608-f010cca67aa1"), toursCount: 9 },
+    tagline: "Temple town mornings, St. Mary's Island afternoons", image: img("photo-1609609830354-8f615d61b9c8"), toursCount: 9 },
   { slug: "gokarna-murudeshwar", name: "Gokarna & Murudeshwar", country: "India", region: "Domestic",
     tagline: "Beach cliffs and the coast's tallest Shiva", image: img("photo-1621996346565-e3dbc646d9a9"), toursCount: 7 },
   { slug: "mangaluru", name: "Mangaluru", country: "India", region: "Domestic",
@@ -60,7 +60,7 @@ export const destinations: Destination[] = [
   { slug: "malaysia", name: "Malaysia", country: "Malaysia", region: "International",
     tagline: "Kuala Lumpur towers and Langkawi shores", image: img("photo-1596422846543-75c6fc197f07"), toursCount: 7 },
   { slug: "cairo-giza", name: "Cairo & Giza", country: "Egypt", region: "Egypt",
-    tagline: "Where pharaohs still whisper", image: img("photo-1539650116574-75c0c6d73f6e"), toursCount: 8 },
+    tagline: "Where pharaohs still whisper", image: img("photo-1587474260584-136574528ed5"), toursCount: 8 },
   { slug: "luxor-aswan", name: "Luxor & Aswan", country: "Egypt", region: "Egypt",
     tagline: "Sail the river of civilizations", image: img("photo-1568322445389-f64ac2515020"), toursCount: 5 },
 ];
@@ -69,7 +69,7 @@ export const tours: Tour[] = [
   // --- Domestic: coastal Karnataka & neighbours ---
   { id: "t1", slug: "coastal-karnataka-signature", title: "Coastal Karnataka: Udupi, Malpe & Maravanthe",
     destination: "Udupi · Malpe · Maravanthe", region: "Domestic", durationDays: 5, priceFrom: 24900,
-    rating: 4.9, reviewsCount: 186, image: img("photo-1600100397608-f010cca67aa1"),
+    rating: 4.9, reviewsCount: 186, image: img("photo-1609609830354-8f615d61b9c8"),
     highlights: ["Krishna Matha morning darshan", "St. Mary's Island boat ride", "Maravanthe coastal drive"], featured: true },
   { id: "t2", slug: "gokarna-murudeshwar-beach-trail", title: "Gokarna & Murudeshwar Beach Trail",
     destination: "Gokarna · Murudeshwar · Yana", region: "Domestic", durationDays: 4, priceFrom: 18900,
@@ -138,7 +138,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const galleryImages: GalleryImage[] = [
-  { id: "g1", url: img("photo-1600100397608-f010cca67aa1"), caption: "Malpe beach, Udupi" },
+  { id: "g1", url: img("photo-1609609830354-8f615d61b9c8"), caption: "Malpe beach, Udupi" },
   { id: "g2", url: img("photo-1621996346565-e3dbc646d9a9"), caption: "Gokarna coastline" },
   { id: "g3", url: img("photo-1590050752117-238cb0fb12b1"), caption: "Mangaluru shores" },
   { id: "g4", url: img("photo-1596386461350-326ccb383e9f"), caption: "Chikkamagaluru coffee hills" },
