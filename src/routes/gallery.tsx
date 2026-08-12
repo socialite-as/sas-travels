@@ -5,7 +5,7 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({ meta: [
     { title: "Gallery — SAS Travels" },
     { name: "description", content: "Postcards from the road — moments captured on SAS Travels journeys." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/gallery" }] }),
   component: Gallery,
 });
 

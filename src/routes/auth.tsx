@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/auth")({
-  head: () => ({ meta: [{ title: "Sign in — SAS Travels" }, { name: "description", content: "Sign in or create your SAS Travels account." }] }),
+  head: () => ({ meta: [{ title: "Sign in — SAS Travels" }, { name: "description", content: "Sign in or create your SAS Travels account." }], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/auth" }] }),
   component: AuthPage,
 });
 

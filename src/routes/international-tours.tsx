@@ -8,7 +8,7 @@ export const Route = createFileRoute("/international-tours")({
   head: () => ({ meta: [
     { title: "International Tours — SAS Travels" },
     { name: "description", content: "Signature international journeys across Greece, Japan, Morocco, and more." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/international-tours" }] }),
   component: () => {
     const [filters, setFilters] = useState<FiltersState>(defaultFilters);
     const list = useMemo(() => applyFilters(tours.filter((t) => t.region !== "Domestic"), filters), [filters]);

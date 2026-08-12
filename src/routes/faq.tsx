@@ -8,7 +8,7 @@ export const Route = createFileRoute("/faq")({
   head: () => ({ meta: [
     { title: "FAQ — SAS Travels" },
     { name: "description", content: "Answers to the questions travelers ask most often before booking." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/faq" }] }),
   component: FAQ,
 });
 

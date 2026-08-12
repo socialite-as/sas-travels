@@ -11,7 +11,7 @@ export const Route = createFileRoute("/custom-itinerary")({
   head: () => ({ meta: [
     { title: "Custom Itinerary — SAS Travels" },
     { name: "description", content: "Tell us your dream trip and a specialist will design a private itinerary — usually within 48 hours." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/custom-itinerary" }] }),
   component: Custom,
 });
 

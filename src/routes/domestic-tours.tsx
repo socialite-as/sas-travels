@@ -8,7 +8,7 @@ export const Route = createFileRoute("/domestic-tours")({
   head: () => ({ meta: [
     { title: "Domestic Tours — SAS Travels" },
     { name: "description", content: "Coastal Karnataka and beyond — handcrafted India tours across Udupi, Malpe, Gokarna, Coorg and Kerala." },
-  ]}),
+  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/domestic-tours" }] }),
   component: DomesticTours,
 });
 
