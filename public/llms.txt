@@ -22,7 +22,3 @@ SAS Travels designs premium, handcrafted itineraries for travellers seeking cons
 - [Travel Insurance](/travel-insurance): Medical, trip and baggage coverage plans.
 - [Gallery](/gallery): Travel photography and destination inspiration.
 
-## Optional
-
-- [Privacy Policy](/privacy): How SAS Travels handles data and privacy.
-- [Terms of Service](/terms): Booking terms, conditions and cancellation policies.
