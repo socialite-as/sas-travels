@@ -38,7 +38,7 @@ function About() {
       <section className="container-x py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-            <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1200&q=80&auto=format&fit=crop" alt="Founders" className="h-full w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1200&q=80&auto=format&fit=crop" alt="SAS Travels founders planning a journey" className="h-full w-full object-cover" />
           </div>
           <div>
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Our story</span>

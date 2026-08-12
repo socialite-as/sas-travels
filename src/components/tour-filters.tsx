@@ -43,6 +43,7 @@ export function TourFilters({
         </div>
         <div className="grid grid-cols-3 gap-2 md:grid-cols-3">
           <select
+            aria-label="Filter by duration"
             value={value.duration}
             onChange={(e) => update("duration", e.target.value as FiltersState["duration"])}
             className="h-10 rounded-md border bg-background px-3 text-sm"
@@ -53,6 +54,7 @@ export function TourFilters({
             <option value="long">9+ days</option>
           </select>
           <select
+            aria-label="Filter by price"
             value={value.price}
             onChange={(e) => update("price", e.target.value as FiltersState["price"])}
             className="h-10 rounded-md border bg-background px-3 text-sm"
@@ -64,6 +66,7 @@ export function TourFilters({
 
           </select>
           <select
+            aria-label="Sort results"
             value={value.sort}
             onChange={(e) => update("sort", e.target.value as FiltersState["sort"])}
             className="h-10 rounded-md border bg-background px-3 text-sm"
