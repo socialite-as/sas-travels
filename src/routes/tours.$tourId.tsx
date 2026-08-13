@@ -13,21 +13,66 @@ import { TourMap } from "@/components/tour/tour-map";
 import { TourReviews } from "@/components/tour/tour-reviews";
 import { RelatedTours } from "@/components/tour/related-tours";
 import { ShareButtons } from "@/components/tour/share-buttons";
-import { asArray, relatedToursQuery, tourBySlugQuery, tourGalleryQuery, tourReviewsQuery } from "@/lib/queries/tours";
+import { asArray, relatedToursQuery, tourBySlugQuery, tourGalleryQuery, tourReviewsQuery, type TourRow } from "@/lib/queries/tours";
 import { useWishlist } from "@/lib/use-wishlist";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/tours/$tourId")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `${params.tourId.replace(/-/g, " ")} — SAS Travels` },
-      { name: "description", content: `Explore this curated tour — full itinerary, hotels, and availability.` },
-      { property: "og:title", content: `${params.tourId.replace(/-/g, " ")} — SAS Travels` },
-      { property: "og:url", content: `https://sas-travels.lovable.app/tours/${params.tourId}` },
-      { property: "og:type", content: "product" },
-    ],
-    links: [{ rel: "canonical", href: `https://sas-travels.lovable.app/tours/${params.tourId}` }],
-  }),
+  loader: ({ context, params }) =>
+    context.queryClient.ensureQueryData(tourBySlugQuery(params.tourId)).catch(() => null),
+  head: ({ params, loaderData }) => {
+    const url = `https://sas-travels.lovable.app/tours/${params.tourId}`;
+    const tour = loaderData as TourRow | null | undefined;
+    const name = tour?.title ?? params.tourId.replace(/-/g, " ");
+    const description =
+      tour?.meta_description ??
+      tour?.summary ??
+      "Explore this curated tour — full itinerary, hotels, and availability.";
+    const image = tour?.cover_image ?? undefined;
+    const price = tour?.discount_price ?? tour?.price ?? undefined;
+    return {
+      meta: [
+        { title: `${name} — SAS Travels` },
+        { name: "description", content: description },
+        { property: "og:title", content: `${name} — SAS Travels` },
+        { property: "og:description", content: description },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "product" },
+        ...(image
+          ? [
+              { property: "og:image", content: image },
+              { name: "twitter:image", content: image },
+            ]
+          : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name,
+            description,
+            ...(image ? { image: [image] } : {}),
+            url,
+            brand: { "@type": "Brand", name: "SAS Travels" },
+            ...(price
+              ? {
+                  offers: {
+                    "@type": "Offer",
+                    price: String(price),
+                    priceCurrency: tour?.currency ?? "INR",
+                    availability: "https://schema.org/InStock",
+                    url,
+                  },
+                }
+              : {}),
+          }),
+        },
+      ],
+    };
+  },
   component: TourDetails,
   errorComponent: TourError,
   notFoundComponent: TourNotFound,
