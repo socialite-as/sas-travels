@@ -13,7 +13,7 @@ import { TourMap } from "@/components/tour/tour-map";
 import { TourReviews } from "@/components/tour/tour-reviews";
 import { RelatedTours } from "@/components/tour/related-tours";
 import { ShareButtons } from "@/components/tour/share-buttons";
-import { asArray, relatedToursQuery, tourBySlugQuery, tourGalleryQuery, tourReviewsQuery } from "@/lib/queries/tours";
+import { asArray, relatedToursQuery, tourBySlugQuery, tourGalleryQuery, tourReviewsQuery, type TourRow } from "@/lib/queries/tours";
 import { useWishlist } from "@/lib/use-wishlist";
 import { cn } from "@/lib/utils";
 
