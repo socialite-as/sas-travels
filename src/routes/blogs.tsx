@@ -6,6 +6,12 @@ export const Route = createFileRoute("/blogs")({
   head: () => ({ meta: [
     { title: "Journal — SAS Travels" },
     { name: "description", content: "Travel journal: field notes, city guides, and quiet corners from the road." },
+    { property: "og:title", content: "SAS Travels Journal — field notes & city guides" },
+    { property: "og:description", content: "Slow reads, destination guides and travel tips from our specialists across India, Egypt and Southeast Asia." },
+    { property: "og:url", content: "https://sas-travels.lovable.app/blogs" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1600&q=80&auto=format&fit=crop" },
+    { name: "twitter:image", content: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1600&q=80&auto=format&fit=crop" },
   ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/blogs" }] }),
   component: Blogs,
 });

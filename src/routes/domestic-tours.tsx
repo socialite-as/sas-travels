@@ -8,6 +8,12 @@ export const Route = createFileRoute("/domestic-tours")({
   head: () => ({ meta: [
     { title: "Domestic Tours — SAS Travels" },
     { name: "description", content: "Coastal Karnataka and beyond — handcrafted India tours across Udupi, Malpe, Gokarna, Coorg and Kerala." },
+    { property: "og:title", content: "Domestic Tours in India | SAS Travels" },
+    { property: "og:description", content: "Handcrafted India holidays across Udupi, Malpe, Gokarna, Coorg, Chikkamagaluru and Kerala, priced in INR." },
+    { property: "og:url", content: "https://sas-travels.lovable.app/domestic-tours" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1600&q=80&auto=format&fit=crop" },
+    { name: "twitter:image", content: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1600&q=80&auto=format&fit=crop" },
   ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/domestic-tours" }] }),
   component: DomesticTours,
 });

@@ -9,6 +9,12 @@ export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
     { title: "About — SAS Travels" },
     { name: "description", content: "Fifteen years designing meaningful journeys. Meet the specialists behind SAS Travels." },
+    { property: "og:title", content: "About SAS Travels — the specialists behind your journey" },
+    { property: "og:description", content: "Meet the small team designing coastal Karnataka escapes and international journeys since 2016." },
+    { property: "og:url", content: "https://sas-travels.lovable.app/about" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1600&q=80&auto=format&fit=crop" },
+    { name: "twitter:image", content: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1600&q=80&auto=format&fit=crop" },
   ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/about" }] }),
   component: About,
 });

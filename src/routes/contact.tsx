@@ -12,6 +12,10 @@ export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
     { title: "Contact — SAS Travels" },
     { name: "description", content: "Speak with a SAS Travels travel specialist. We reply within one business day." },
+    { property: "og:title", content: "Contact SAS Travels — talk to a travel specialist" },
+    { property: "og:description", content: "Call, WhatsApp or email our Udupi team. We reply to every enquiry within one business day." },
+    { property: "og:url", content: "https://sas-travels.lovable.app/contact" },
+    { property: "og:type", content: "website" },
   ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/contact" }] }),
   component: ContactPage,
 });

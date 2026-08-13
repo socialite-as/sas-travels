@@ -6,6 +6,10 @@ export const Route = createFileRoute("/travel-insurance")({
   head: () => ({ meta: [
     { title: "Travel Insurance — SAS Travels" },
     { name: "description", content: "Comprehensive travel insurance from our vetted partners. Medical, cancellation, and baggage coverage." },
+    { property: "og:title", content: "Travel Insurance for your trip | SAS Travels" },
+    { property: "og:description", content: "Medical, cancellation and baggage cover from vetted partners, arranged alongside your SAS Travels booking." },
+    { property: "og:url", content: "https://sas-travels.lovable.app/travel-insurance" },
+    { property: "og:type", content: "website" },
   ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/travel-insurance" }] }),
   component: TravelInsurance,
 });
