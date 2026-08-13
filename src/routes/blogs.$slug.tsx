@@ -7,6 +7,8 @@ export const Route = createFileRoute("/blogs/$slug")({
     const name = params.slug.replace(/-/g, " ");
     const description = `${name.charAt(0).toUpperCase()}${name.slice(1)} — a field note from the SAS Travels journal, with specialist tips, places to stay and how to fit it into your itinerary.`;
     const url = `https://sas-travels.lovable.app/blogs/${params.slug}`;
+    const title = `${name.charAt(0).toUpperCase()}${name.slice(1)}`;
+    const image = "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1400&q=80&auto=format&fit=crop";
     return {
       meta: [
         { title: `${name} — SAS Travels journal` },
@@ -15,8 +17,34 @@ export const Route = createFileRoute("/blogs/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
+        { property: "og:image", content: image },
+        { name: "twitter:image", content: image },
       ],
       links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: title,
+            description,
+            image: [image],
+            datePublished: "2026-05-01",
+            dateModified: "2026-05-01",
+            mainEntityOfPage: { "@type": "WebPage", "@id": url },
+            author: { "@type": "Organization", name: "SAS Travels" },
+            publisher: {
+              "@type": "Organization",
+              name: "SAS Travels",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://sas-travels.lovable.app/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
+              },
+            },
+          }),
+        },
+      ],
     };
   },
   component: BlogPost,
