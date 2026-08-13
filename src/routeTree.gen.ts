@@ -25,6 +25,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
+import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -112,6 +113,11 @@ const ToursTourIdRoute = ToursTourIdRouteImport.update({
   path: '/tours/$tourId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapXmlRoute = SitemapXmlRouteImport.update({
+  id: '/sitemap/xml',
+  path: '/sitemap/xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogsSlugRoute = BlogsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -169,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin/': typeof AuthenticatedAdminIndexRoute
@@ -192,6 +199,7 @@ export interface FileRoutesByTo {
   '/visa': typeof VisaRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin': typeof AuthenticatedAdminIndexRoute
@@ -218,6 +226,7 @@ export interface FileRoutesById {
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/_authenticated/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
@@ -244,6 +253,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/dashboard'
     | '/blogs/$slug'
+    | '/sitemap/xml'
     | '/tours/$tourId'
     | '/admin/$resource'
     | '/admin/'
@@ -267,6 +277,7 @@ export interface FileRouteTypes {
     | '/visa'
     | '/dashboard'
     | '/blogs/$slug'
+    | '/sitemap/xml'
     | '/tours/$tourId'
     | '/admin/$resource'
     | '/admin'
@@ -292,6 +303,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/blogs/$slug'
+    | '/sitemap/xml'
     | '/tours/$tourId'
     | '/_authenticated/admin/$resource'
     | '/_authenticated/admin/'
@@ -315,6 +327,7 @@ export interface RootRouteChildren {
   InternationalToursRoute: typeof InternationalToursRoute
   TravelInsuranceRoute: typeof TravelInsuranceRoute
   VisaRoute: typeof VisaRoute
+  SitemapXmlRoute: typeof SitemapXmlRoute
   ToursTourIdRoute: typeof ToursTourIdRoute
 }
 
@@ -430,6 +443,13 @@ declare module '@tanstack/react-router' {
       path: '/tours/$tourId'
       fullPath: '/tours/$tourId'
       preLoaderRoute: typeof ToursTourIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap/xml': {
+      id: '/sitemap/xml'
+      path: '/sitemap/xml'
+      fullPath: '/sitemap/xml'
+      preLoaderRoute: typeof SitemapXmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blogs/$slug': {
@@ -552,6 +572,7 @@ const rootRouteChildren: RootRouteChildren = {
   InternationalToursRoute: InternationalToursRoute,
   TravelInsuranceRoute: TravelInsuranceRoute,
   VisaRoute: VisaRoute,
+  SitemapXmlRoute: SitemapXmlRoute,
   ToursTourIdRoute: ToursTourIdRoute,
 }
 export const routeTree = rootRouteImport
