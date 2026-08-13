@@ -10,6 +10,12 @@ export const Route = createFileRoute("/destinations")({
   head: () => ({ meta: [
     { title: "Destinations — SAS Travels" },
     { name: "description", content: "Every country, city, and hidden gem we cover — from Cairo to Kyoto." },
+    { property: "og:title", content: "Destinations we cover | SAS Travels" },
+    { property: "og:description", content: "Browse every destination we plan — coastal Karnataka, Kerala, Egypt, UAE, Maldives, Thailand and Malaysia." },
+    { property: "og:url", content: "https://sas-travels.lovable.app/destinations" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
+    { name: "twitter:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
   ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/destinations" }] }),
   component: DestinationsPage,
 });
