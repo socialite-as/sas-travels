@@ -90,6 +90,41 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://images.unsplash.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            name: "SAS Travels",
+            url: "https://sas-travels.lovable.app",
+            logo: "https://sas-travels.lovable.app/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
+            description:
+              "SAS Travels crafts private, expert-led journeys across coastal Karnataka, India and the world.",
+            email: "info@sastoursandtravels.com",
+            telephone: "+91 72047 51900",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Udupi",
+              addressRegion: "Karnataka",
+              addressCountry: "IN",
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "SAS Travels",
+            url: "https://sas-travels.lovable.app",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://sas-travels.lovable.app/destinations?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          },
+        ]),
+      },
+    ],
   }),
 
   shellComponent: RootShell,
