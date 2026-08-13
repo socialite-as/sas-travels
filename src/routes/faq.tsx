@@ -5,14 +5,31 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { faqs } from "@/lib/mock/data";
 
 export const Route = createFileRoute("/faq")({
-  head: () => ({ meta: [
-    { title: "FAQ — SAS Travels" },
-    { name: "description", content: "Answers to the questions travelers ask most often before booking." },
-    { property: "og:title", content: "Travel FAQ — booking, payments & visas | SAS Travels" },
-    { property: "og:description", content: "Answers to the questions travellers ask most about bookings, payments, visas and cancellations." },
-    { property: "og:url", content: "https://sas-travels.lovable.app/faq" },
-    { property: "og:type", content: "website" },
-  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/faq" }] }),
+  head: () => ({
+    meta: [
+      { title: "FAQ — SAS Travels" },
+      { name: "description", content: "Answers to the questions travelers ask most often before booking." },
+      { property: "og:title", content: "Travel FAQ — booking, payments & visas | SAS Travels" },
+      { property: "og:description", content: "Answers to the questions travellers ask most about bookings, payments, visas and cancellations." },
+      { property: "og:url", content: "https://sas-travels.lovable.app/faq" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/faq" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
+  }),
   component: FAQ,
 });
 
