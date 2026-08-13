@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as TravelInsuranceRouteImport } from './routes/travel-insurance'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as InternationalToursRouteImport } from './routes/international-tours'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -25,7 +26,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
-import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -42,6 +42,11 @@ const VisaRoute = VisaRouteImport.update({
 const TravelInsuranceRoute = TravelInsuranceRouteImport.update({
   id: '/travel-insurance',
   path: '/travel-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InternationalToursRoute = InternationalToursRouteImport.update({
@@ -113,11 +118,6 @@ const ToursTourIdRoute = ToursTourIdRouteImport.update({
   path: '/tours/$tourId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapXmlRoute = SitemapXmlRouteImport.update({
-  id: '/sitemap/xml',
-  path: '/sitemap/xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogsSlugRoute = BlogsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -170,12 +170,12 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/international-tours': typeof InternationalToursRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
-  '/sitemap/xml': typeof SitemapXmlRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin/': typeof AuthenticatedAdminIndexRoute
@@ -195,11 +195,11 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/international-tours': typeof InternationalToursRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
-  '/sitemap/xml': typeof SitemapXmlRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin': typeof AuthenticatedAdminIndexRoute
@@ -221,12 +221,12 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/international-tours': typeof InternationalToursRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/blogs/$slug': typeof BlogsSlugRoute
-  '/sitemap/xml': typeof SitemapXmlRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/_authenticated/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
@@ -248,12 +248,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/international-tours'
+    | '/sitemap.xml'
     | '/travel-insurance'
     | '/visa'
     | '/admin'
     | '/dashboard'
     | '/blogs/$slug'
-    | '/sitemap/xml'
     | '/tours/$tourId'
     | '/admin/$resource'
     | '/admin/'
@@ -273,11 +273,11 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/international-tours'
+    | '/sitemap.xml'
     | '/travel-insurance'
     | '/visa'
     | '/dashboard'
     | '/blogs/$slug'
-    | '/sitemap/xml'
     | '/tours/$tourId'
     | '/admin/$resource'
     | '/admin'
@@ -298,12 +298,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/international-tours'
+    | '/sitemap.xml'
     | '/travel-insurance'
     | '/visa'
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/blogs/$slug'
-    | '/sitemap/xml'
     | '/tours/$tourId'
     | '/_authenticated/admin/$resource'
     | '/_authenticated/admin/'
@@ -325,9 +325,9 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   InternationalToursRoute: typeof InternationalToursRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TravelInsuranceRoute: typeof TravelInsuranceRoute
   VisaRoute: typeof VisaRoute
-  SitemapXmlRoute: typeof SitemapXmlRoute
   ToursTourIdRoute: typeof ToursTourIdRoute
 }
 
@@ -345,6 +345,13 @@ declare module '@tanstack/react-router' {
       path: '/travel-insurance'
       fullPath: '/travel-insurance'
       preLoaderRoute: typeof TravelInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/international-tours': {
@@ -443,13 +450,6 @@ declare module '@tanstack/react-router' {
       path: '/tours/$tourId'
       fullPath: '/tours/$tourId'
       preLoaderRoute: typeof ToursTourIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap/xml': {
-      id: '/sitemap/xml'
-      path: '/sitemap/xml'
-      fullPath: '/sitemap/xml'
-      preLoaderRoute: typeof SitemapXmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blogs/$slug': {
@@ -570,9 +570,9 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   InternationalToursRoute: InternationalToursRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TravelInsuranceRoute: TravelInsuranceRoute,
   VisaRoute: VisaRoute,
-  SitemapXmlRoute: SitemapXmlRoute,
   ToursTourIdRoute: ToursTourIdRoute,
 }
 export const routeTree = rootRouteImport
