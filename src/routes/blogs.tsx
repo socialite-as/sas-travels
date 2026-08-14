@@ -33,6 +33,28 @@ function Blogs() {
         </p>
       </header>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <Link
+          to="/blog/nile-cruise-comparison"
+          className="group relative overflow-hidden rounded-2xl border bg-card hover-lift md:col-span-2"
+        >
+          <div className="aspect-[16/9] overflow-hidden md:aspect-[21/9]">
+            <img
+              src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1200&q=80&auto=format&fit=crop"
+              alt="Luxury Nile cruise ship sailing past Karnak Temple at golden hour"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+          <div className="p-6 md:p-8">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Featured guide</span>
+            <h3 className="mt-2 font-display text-2xl font-semibold leading-snug group-hover:text-primary md:text-3xl">
+              Luxury Nile Cruise Comparison Guide 2026
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Compare ships, routes, Egyptologist guides and prices for the most important booking decision in any Egypt
+              tour package.
+            </p>
+          </div>
+        </Link>
         {posts.map((p) => (
           <Link key={p.slug} to="/blogs/$slug" params={{ slug: p.slug }} className="group overflow-hidden rounded-2xl border bg-card hover-lift">
             <div className="aspect-[4/3] overflow-hidden">
