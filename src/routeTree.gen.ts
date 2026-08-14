@@ -27,6 +27,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as BlogNileCruiseComparisonRouteImport } from './routes/blog/nile-cruise-comparison'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
@@ -123,6 +124,12 @@ const BlogsSlugRoute = BlogsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogsRoute,
 } as any)
+const BlogNileCruiseComparisonRoute =
+  BlogNileCruiseComparisonRouteImport.update({
+    id: '/blog/nile-cruise-comparison',
+    path: '/blog/nile-cruise-comparison',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -175,6 +182,7 @@ export interface FileRoutesByFullPath {
   '/visa': typeof VisaRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
@@ -199,6 +207,7 @@ export interface FileRoutesByTo {
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
@@ -226,6 +235,7 @@ export interface FileRoutesById {
   '/visa': typeof VisaRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
   '/_authenticated/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
@@ -253,6 +263,7 @@ export interface FileRouteTypes {
     | '/visa'
     | '/admin'
     | '/dashboard'
+    | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
     | '/admin/$resource'
@@ -277,6 +288,7 @@ export interface FileRouteTypes {
     | '/travel-insurance'
     | '/visa'
     | '/dashboard'
+    | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
     | '/admin/$resource'
@@ -303,6 +315,7 @@ export interface FileRouteTypes {
     | '/visa'
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
+    | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
     | '/_authenticated/admin/$resource'
@@ -328,6 +341,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TravelInsuranceRoute: typeof TravelInsuranceRoute
   VisaRoute: typeof VisaRoute
+  BlogNileCruiseComparisonRoute: typeof BlogNileCruiseComparisonRoute
   ToursTourIdRoute: typeof ToursTourIdRoute
 }
 
@@ -459,6 +473,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof BlogsRoute
     }
+    '/blog/nile-cruise-comparison': {
+      id: '/blog/nile-cruise-comparison'
+      path: '/blog/nile-cruise-comparison'
+      fullPath: '/blog/nile-cruise-comparison'
+      preLoaderRoute: typeof BlogNileCruiseComparisonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -573,6 +594,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TravelInsuranceRoute: TravelInsuranceRoute,
   VisaRoute: VisaRoute,
+  BlogNileCruiseComparisonRoute: BlogNileCruiseComparisonRoute,
   ToursTourIdRoute: ToursTourIdRoute,
 }
 export const routeTree = rootRouteImport
