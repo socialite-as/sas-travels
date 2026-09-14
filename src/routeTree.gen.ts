@@ -19,6 +19,7 @@ import { Route as EgyptRouteImport } from './routes/egypt'
 import { Route as DomesticToursRouteImport } from './routes/domestic-tours'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as CustomItineraryRouteImport } from './routes/custom-itinerary'
+import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -83,6 +84,11 @@ const DestinationsRoute = DestinationsRouteImport.update({
 const CustomItineraryRoute = CustomItineraryRouteImport.update({
   id: '/custom-itinerary',
   path: '/custom-itinerary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -170,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/custom-itinerary': typeof CustomItineraryRoute
   '/destinations': typeof DestinationsRoute
   '/domestic-tours': typeof DomesticToursRoute
@@ -196,6 +203,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/custom-itinerary': typeof CustomItineraryRoute
   '/destinations': typeof DestinationsRoute
   '/domestic-tours': typeof DomesticToursRoute
@@ -223,6 +231,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/custom-itinerary': typeof CustomItineraryRoute
   '/destinations': typeof DestinationsRoute
   '/domestic-tours': typeof DomesticToursRoute
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blogs'
     | '/contact'
+    | '/corporate'
     | '/custom-itinerary'
     | '/destinations'
     | '/domestic-tours'
@@ -277,6 +287,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blogs'
     | '/contact'
+    | '/corporate'
     | '/custom-itinerary'
     | '/destinations'
     | '/domestic-tours'
@@ -303,6 +314,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blogs'
     | '/contact'
+    | '/corporate'
     | '/custom-itinerary'
     | '/destinations'
     | '/domestic-tours'
@@ -331,6 +343,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BlogsRoute: typeof BlogsRouteWithChildren
   ContactRoute: typeof ContactRoute
+  CorporateRoute: typeof CorporateRoute
   CustomItineraryRoute: typeof CustomItineraryRoute
   DestinationsRoute: typeof DestinationsRoute
   DomesticToursRoute: typeof DomesticToursRoute
@@ -415,6 +428,13 @@ declare module '@tanstack/react-router' {
       path: '/custom-itinerary'
       fullPath: '/custom-itinerary'
       preLoaderRoute: typeof CustomItineraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -584,6 +604,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BlogsRoute: BlogsRouteWithChildren,
   ContactRoute: ContactRoute,
+  CorporateRoute: CorporateRoute,
   CustomItineraryRoute: CustomItineraryRoute,
   DestinationsRoute: DestinationsRoute,
   DomesticToursRoute: DomesticToursRoute,
