@@ -225,6 +225,60 @@ export type Database = {
           },
         ]
       }
+      corporate_enquiries: {
+        Row: {
+          archived: boolean
+          budget_per_person: number | null
+          company_name: string
+          contact_name: string
+          created_at: string
+          destination: string | null
+          email: string
+          event_type: string
+          id: string
+          message: string | null
+          phone: string | null
+          preferred_dates: string | null
+          status: Database["public"]["Enums"]["itinerary_status"]
+          team_size: number | null
+          updated_at: string
+        }
+        Insert: {
+          archived?: boolean
+          budget_per_person?: number | null
+          company_name: string
+          contact_name: string
+          created_at?: string
+          destination?: string | null
+          email: string
+          event_type?: string
+          id?: string
+          message?: string | null
+          phone?: string | null
+          preferred_dates?: string | null
+          status?: Database["public"]["Enums"]["itinerary_status"]
+          team_size?: number | null
+          updated_at?: string
+        }
+        Update: {
+          archived?: boolean
+          budget_per_person?: number | null
+          company_name?: string
+          contact_name?: string
+          created_at?: string
+          destination?: string | null
+          email?: string
+          event_type?: string
+          id?: string
+          message?: string | null
+          phone?: string | null
+          preferred_dates?: string | null
+          status?: Database["public"]["Enums"]["itinerary_status"]
+          team_size?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       countries: {
         Row: {
           archived: boolean
