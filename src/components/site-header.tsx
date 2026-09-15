@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useAuth } from "@/lib/auth-provider";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/sas-travels-logo.png.asset.json";
+import logo from "@/assets/sas-travels-logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
