@@ -27,6 +27,7 @@ const groups: { title: string; links: { to: string; label: string }[] }[] = [
   {
     title: "Services",
     links: [
+      { to: "/corporate", label: "Corporate Travel" },
       { to: "/custom-itinerary", label: "Custom Itinerary" },
       { to: "/visa", label: "Visa Support" },
       { to: "/travel-insurance", label: "Travel Insurance" },
