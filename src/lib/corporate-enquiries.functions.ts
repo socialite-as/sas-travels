@@ -24,8 +24,20 @@ export const submitCorporateEnquiry = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     if (data.website) return { ok: true };
 
-    const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
-    const supabasePublic = createClient<Database>(process.env["SUPABASE_URL"]!, key, {
+    const url = process.env["SUPABASE_URL"] ?? process.env["VITE_SUPABASE_URL"];
+    const key = process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
+
+    if (!url || !key) {
+      console.error("[corporate-enquiry] missing Supabase env", {
+        hasUrl: Boolean(url),
+        hasKey: Boolean(key),
+      });
+      throw new Error(
+        "We couldn't submit your enquiry right now. Please call +91 72047 51900 or email info@sastoursandtravels.com.",
+      );
+    }
+
+    const supabasePublic = createClient<Database>(url, key, {
       auth: { persistSession: false, autoRefreshToken: false },
       global: {
         fetch: (input, init) => {
