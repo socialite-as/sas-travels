@@ -43,7 +43,7 @@ export function SiteHeader() {
     >
       <div className="container-x flex h-20 items-center justify-between gap-4">
         <Link to="/" className="flex min-w-0 items-center gap-2.5 font-semibold" aria-label="SAS Travels home">
-          <img src={logo.url} alt="" width={36} height={36} className="h-9 w-9 shrink-0" loading="eager" decoding="async" />
+          <img src={logo} alt="" width={36} height={36} className="h-9 w-9 shrink-0" loading="eager" decoding="async" />
           <span className="font-display text-lg tracking-tight">SAS Travels</span>
         </Link>
 
