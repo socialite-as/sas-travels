@@ -29,6 +29,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/visa", changefreq: "monthly", priority: "0.7" },
           { path: "/travel-insurance", changefreq: "monthly", priority: "0.7" },
           { path: "/custom-itinerary", changefreq: "monthly", priority: "0.8" },
+          { path: "/corporate", changefreq: "monthly", priority: "0.8" },
         ];
 
         // Load the server-side admin client inside the handler so it never ships to the browser.

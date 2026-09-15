@@ -1,0 +1,1 @@
+DELETE FROM public.corporate_enquiries WHERE email = 'ravi@acme.com' AND company_name = 'Acme Pvt Ltd';
