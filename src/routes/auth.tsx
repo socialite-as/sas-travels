@@ -15,7 +15,10 @@ function safeNext(next: unknown): string | null {
 
 export const Route = createFileRoute("/auth")({
   head: () => ({ meta: [{ title: "Sign in — SAS Travels" }, { name: "description", content: "Sign in or create your SAS Travels account." }], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/auth" }] }),
-  validateSearch: (s: Record<string, unknown>) => ({ next: safeNext(s.next) ?? undefined }),
+  validateSearch: (s: Record<string, unknown>): { next?: string } => {
+    const next = safeNext(s.next);
+    return next ? { next } : {};
+  },
   component: AuthPage,
 });
 
