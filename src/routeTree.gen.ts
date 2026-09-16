@@ -33,6 +33,7 @@ import { Route as AuthenticatedDashboardRouteImport } from './routes/_authentica
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminResourceRouteImport } from './routes/_authenticated/admin.$resource'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as AuthenticatedAdminResourceNewRouteImport } from './routes/_authenticated/admin.$resource.new'
 import { Route as AuthenticatedAdminResourceIdRouteImport } from './routes/_authenticated/admin.$resource.$id'
 
@@ -157,6 +158,11 @@ const AuthenticatedAdminResourceRoute =
     path: '/$resource',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminResourceNewRoute =
   AuthenticatedAdminResourceNewRouteImport.update({
     id: '/new',
@@ -192,6 +198,7 @@ export interface FileRoutesByFullPath {
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin/': typeof AuthenticatedAdminIndexRoute
   '/admin/$resource/$id': typeof AuthenticatedAdminResourceIdRoute
@@ -218,6 +225,7 @@ export interface FileRoutesByTo {
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin': typeof AuthenticatedAdminIndexRoute
   '/admin/$resource/$id': typeof AuthenticatedAdminResourceIdRoute
@@ -247,6 +255,7 @@ export interface FileRoutesById {
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/_authenticated/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/admin/$resource/$id': typeof AuthenticatedAdminResourceIdRoute
@@ -276,6 +285,7 @@ export interface FileRouteTypes {
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
+    | '/.lovable/oauth/consent'
     | '/admin/$resource'
     | '/admin/'
     | '/admin/$resource/$id'
@@ -302,6 +312,7 @@ export interface FileRouteTypes {
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
+    | '/.lovable/oauth/consent'
     | '/admin/$resource'
     | '/admin'
     | '/admin/$resource/$id'
@@ -330,6 +341,7 @@ export interface FileRouteTypes {
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
+    | '/.lovable/oauth/consent'
     | '/_authenticated/admin/$resource'
     | '/_authenticated/admin/'
     | '/_authenticated/admin/$resource/$id'
@@ -356,6 +368,7 @@ export interface RootRouteChildren {
   VisaRoute: typeof VisaRoute
   BlogNileCruiseComparisonRoute: typeof BlogNileCruiseComparisonRoute
   ToursTourIdRoute: typeof ToursTourIdRoute
+  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -528,6 +541,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminResourceRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/admin/$resource/new': {
       id: '/_authenticated/admin/$resource/new'
       path: '/new'
@@ -617,6 +637,7 @@ const rootRouteChildren: RootRouteChildren = {
   VisaRoute: VisaRoute,
   BlogNileCruiseComparisonRoute: BlogNileCruiseComparisonRoute,
   ToursTourIdRoute: ToursTourIdRoute,
+  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
