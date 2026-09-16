@@ -10,8 +10,15 @@ type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string
 type AdminRow = { [key: string]: JsonValue };
 
 const jsonValueSchema: z.ZodType<JsonValue> = z.lazy(() =>
-  z.union([z.string(), z.number(), z.boolean(), z.null(), z.array(jsonValueSchema), z.record(jsonValueSchema)]),
-);
+  z.union([
+    z.string(),
+    z.number(),
+    z.boolean(),
+    z.null(),
+    z.array(jsonValueSchema),
+    z.record(z.string(), jsonValueSchema),
+  ]),
+) as z.ZodType<JsonValue>;
 const saveSchema = resourceKeySchema.extend({
   id: z.string().uuid().optional(),
   payload: z.record(z.string(), jsonValueSchema),
