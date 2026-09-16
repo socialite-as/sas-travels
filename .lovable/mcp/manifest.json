@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "sdk_version": "2.2.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://qqpgxwpqmmztihxiqznf.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "sas-travels",
+      "version": "0.1.0",
+      "title": "SAS Travels"
+    },
+    "tools": [
+      {
+        "name": "search_tours",
+        "title": "Search tour packages",
+        "description": "Search SAS Travels tour packages by keyword, domestic/international scope, price and duration. Returns slug, title, price in INR and duration.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Keyword to match in the title or summary.",
+              "type": "string",
+              "maxLength": 120
+            },
+            "scope": {
+              "description": "Domestic (India) or international tours.",
+              "type": "string",
+              "enum": [
+                "domestic",
+                "international",
+                "all"
+              ]
+            },
+            "max_price": {
+              "description": "Maximum price per person in INR.",
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "limit": {
+              "description": "Maximum number of results (default 10).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 25
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_tour",
+        "title": "Get tour details",
+        "description": "Fetch the full details of one SAS Travels tour package by its slug: itinerary, inclusions, hotels, meals, price and cancellation policy.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Tour slug, e.g. 'udupi-coastal-escape'."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_destinations",
+        "title": "List destinations",
+        "description": "List the countries and cities SAS Travels runs tours to.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "Maximum countries returned (default 50).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_my_bookings",
+        "title": "List my bookings",
+        "description": "List the signed-in traveller's SAS Travels bookings with status, dates, travellers and total amount.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_corporate_enquiry",
+        "title": "Submit a corporate enquiry",
+        "description": "Send SAS Travels a B2B enquiry for a corporate offsite, retreat or incentive trip. The team follows up by email.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "company_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 150
+            },
+            "contact_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "email": {
+              "type": "string",
+              "maxLength": 255,
+              "format": "email",
+              "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+              "description": "Work email for the follow-up."
+            },
+            "phone": {
+              "type": "string",
+              "maxLength": 30
+            },
+            "event_type": {
+              "type": "string",
+              "enum": [
+                "offsite",
+                "retreat",
+                "incentive",
+                "other"
+              ]
+            },
+            "team_size": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "destination": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "preferred_dates": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "budget_per_person": {
+              "description": "Budget per person in INR.",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000000
+            },
+            "message": {
+              "type": "string",
+              "maxLength": 2000
+            }
+          },
+          "required": [
+            "company_name",
+            "contact_name",
+            "email",
+            "event_type"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
