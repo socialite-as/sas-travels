@@ -30,6 +30,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as BlogNileCruiseComparisonRouteImport } from './routes/blog/nile-cruise-comparison'
+import { Route as BlogCoastalKarnatakaTourGuideRouteImport } from './routes/blog/coastal-karnataka-tour-guide'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
@@ -144,6 +145,12 @@ const BlogNileCruiseComparisonRoute =
     path: '/blog/nile-cruise-comparison',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogCoastalKarnatakaTourGuideRoute =
+  BlogCoastalKarnatakaTourGuideRouteImport.update({
+    id: '/blog/coastal-karnataka-tour-guide',
+    path: '/blog/coastal-karnataka-tour-guide',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -210,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/coastal-karnataka-tour-guide': typeof BlogCoastalKarnatakaTourGuideRoute
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
@@ -239,6 +247,7 @@ export interface FileRoutesByTo {
   '/visa': typeof VisaRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/coastal-karnataka-tour-guide': typeof BlogCoastalKarnatakaTourGuideRoute
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
@@ -271,6 +280,7 @@ export interface FileRoutesById {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/coastal-karnataka-tour-guide': typeof BlogCoastalKarnatakaTourGuideRoute
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
@@ -303,6 +313,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/admin'
     | '/dashboard'
+    | '/blog/coastal-karnataka-tour-guide'
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
@@ -332,6 +343,7 @@ export interface FileRouteTypes {
     | '/visa'
     | '/.well-known/oauth-protected-resource'
     | '/dashboard'
+    | '/blog/coastal-karnataka-tour-guide'
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
@@ -363,6 +375,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
+    | '/blog/coastal-karnataka-tour-guide'
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
@@ -393,6 +406,7 @@ export interface RootRouteChildren {
   TravelInsuranceRoute: typeof TravelInsuranceRoute
   VisaRoute: typeof VisaRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  BlogCoastalKarnatakaTourGuideRoute: typeof BlogCoastalKarnatakaTourGuideRoute
   BlogNileCruiseComparisonRoute: typeof BlogNileCruiseComparisonRoute
   ToursTourIdRoute: typeof ToursTourIdRoute
   DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
@@ -547,6 +561,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogNileCruiseComparisonRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/coastal-karnataka-tour-guide': {
+      id: '/blog/coastal-karnataka-tour-guide'
+      path: '/blog/coastal-karnataka-tour-guide'
+      fullPath: '/blog/coastal-karnataka-tour-guide'
+      preLoaderRoute: typeof BlogCoastalKarnatakaTourGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -679,6 +700,7 @@ const rootRouteChildren: RootRouteChildren = {
   VisaRoute: VisaRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  BlogCoastalKarnatakaTourGuideRoute: BlogCoastalKarnatakaTourGuideRoute,
   BlogNileCruiseComparisonRoute: BlogNileCruiseComparisonRoute,
   ToursTourIdRoute: ToursTourIdRoute,
   DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
