@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sas-travels.lovable.app/sitemap.xml
+Sitemap: https://www.sastoursandtravels.com/sitemap.xml

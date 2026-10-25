@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const URL = "https://sas-travels.lovable.app/blog/coastal-karnataka-tour-guide";
+const URL = "https://www.sastoursandtravels.com/blog/coastal-karnataka-tour-guide";
 const IMAGE = "https://images.unsplash.com/photo-1590123715937-e3ae7f8b4c4e?w=1200&h=630&q=80&auto=format&fit=crop";
 const TITLE = "Coastal Karnataka Tour Guide: Udupi, Mangalore & Gokarna — SAS Travels";
 const DESC =
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/blog/coastal-karnataka-tour-guide")({
                 item: { "@type": "TouristDestination", name },
               })),
             },
-            provider: { "@type": "TravelAgency", name: "SAS Travels", url: "https://sas-travels.lovable.app" },
+            provider: { "@type": "TravelAgency", name: "SAS Travels", url: "https://www.sastoursandtravels.com" },
           },
         ]),
       },

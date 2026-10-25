@@ -11,10 +11,10 @@ export const Route = createFileRoute("/faq")({
       { name: "description", content: "Answers to the questions travelers ask most often before booking." },
       { property: "og:title", content: "Travel FAQ — booking, payments & visas | SAS Travels" },
       { property: "og:description", content: "Answers to the questions travellers ask most about bookings, payments, visas and cancellations." },
-      { property: "og:url", content: "https://sas-travels.lovable.app/faq" },
+      { property: "og:url", content: "https://www.sastoursandtravels.com/faq" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/faq" }],
+    links: [{ rel: "canonical", href: "https://www.sastoursandtravels.com/faq" }],
     scripts: [
       {
         type: "application/ld+json",

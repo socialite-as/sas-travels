@@ -6,7 +6,7 @@ export const Route = createFileRoute("/blogs/$slug")({
   head: ({ params }) => {
     const name = params.slug.replace(/-/g, " ");
     const description = `${name.charAt(0).toUpperCase()}${name.slice(1)} — a field note from the SAS Travels journal, with specialist tips, places to stay and how to fit it into your itinerary.`;
-    const url = `https://sas-travels.lovable.app/blogs/${params.slug}`;
+    const url = `https://www.sastoursandtravels.com/blogs/${params.slug}`;
     const title = `${name.charAt(0).toUpperCase()}${name.slice(1)}`;
     const image = "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1400&q=80&auto=format&fit=crop";
     return {
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/blogs/$slug")({
               name: "SAS Travels",
               logo: {
                 "@type": "ImageObject",
-                url: "https://sas-travels.lovable.app/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
+                url: "https://www.sastoursandtravels.com/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
               },
             },
           }),

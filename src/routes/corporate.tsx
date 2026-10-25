@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { SectionHeading } from "@/components/section-heading";
 import { submitCorporateEnquiry, corporateEnquirySchema } from "@/lib/corporate-enquiries.functions";
 
-const CANONICAL = "https://sas-travels.lovable.app/corporate";
+const CANONICAL = "https://www.sastoursandtravels.com/corporate";
 const HERO = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1900&q=80&auto=format&fit=crop";
 
 export const Route = createFileRoute("/corporate")({
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/corporate")({
           "@context": "https://schema.org",
           "@type": "Service",
           serviceType: "Corporate travel, team offsites and incentive trips",
-          provider: { "@type": "TravelAgency", name: "SAS Travels", url: "https://sas-travels.lovable.app" },
+          provider: { "@type": "TravelAgency", name: "SAS Travels", url: "https://www.sastoursandtravels.com" },
           areaServed: ["India", "United Arab Emirates", "Maldives", "Thailand", "Malaysia", "Egypt"],
           description:
             "Corporate travel management for Indian companies: team offsites, leadership retreats and sales incentive trips, planned and operated end to end.",
