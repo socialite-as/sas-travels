@@ -7,7 +7,7 @@ export const Route = createFileRoute("/blog/nile-cruise-comparison")({
     const title = "Luxury Nile Cruise Comparison Guide 2026 — SAS Travels";
     const description =
       "Compare the best luxury Nile cruise ships, Luxor vs Aswan routes, Egyptologist guides, cabins and inclusions. Plan your Egypt tour package with the SAS Travels specialists.";
-    const url = "https://sas-travels.lovable.app/blog/nile-cruise-comparison";
+    const url = "https://www.sastoursandtravels.com/blog/nile-cruise-comparison";
     const image = "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1600&q=80&auto=format&fit=crop";
     const published = "2026-08-14";
     return {
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/blog/nile-cruise-comparison")({
               name: "SAS Travels",
               logo: {
                 "@type": "ImageObject",
-                url: "https://sas-travels.lovable.app/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
+                url: "https://www.sastoursandtravels.com/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
               },
             },
           }),

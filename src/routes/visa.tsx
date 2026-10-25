@@ -8,9 +8,9 @@ export const Route = createFileRoute("/visa")({
     { name: "description", content: "Concierge visa support: e-visas, invitation letters, and consular guidance." },
     { property: "og:title", content: "Visa Assistance & Support | SAS Travels" },
     { property: "og:description", content: "Concierge visa support: e-visas, invitation letters, documentation checks and consular guidance." },
-    { property: "og:url", content: "https://sas-travels.lovable.app/visa" },
+    { property: "og:url", content: "https://www.sastoursandtravels.com/visa" },
     { property: "og:type", content: "website" },
-  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/visa" }] }),
+  ], links: [{ rel: "canonical", href: "https://www.sastoursandtravels.com/visa" }] }),
   component: Visa,
 });
 

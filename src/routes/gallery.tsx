@@ -7,11 +7,11 @@ export const Route = createFileRoute("/gallery")({
     { name: "description", content: "Postcards from the road — moments captured on SAS Travels journeys." },
     { property: "og:title", content: "Travel Gallery — postcards from our journeys | SAS Travels" },
     { property: "og:description", content: "Photographs from SAS Travels journeys across coastal Karnataka, Egypt, the Maldives and Southeast Asia." },
-    { property: "og:url", content: "https://sas-travels.lovable.app/gallery" },
+    { property: "og:url", content: "https://www.sastoursandtravels.com/gallery" },
     { property: "og:type", content: "website" },
     { property: "og:image", content: "https://images.unsplash.com/photo-1502786129293-79981df4e689?w=1600&q=80&auto=format&fit=crop" },
     { name: "twitter:image", content: "https://images.unsplash.com/photo-1502786129293-79981df4e689?w=1600&q=80&auto=format&fit=crop" },
-  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/gallery" }] }),
+  ], links: [{ rel: "canonical", href: "https://www.sastoursandtravels.com/gallery" }] }),
   component: Gallery,
 });
 

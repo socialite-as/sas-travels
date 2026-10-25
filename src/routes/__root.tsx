@@ -100,8 +100,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@context": "https://schema.org",
             "@type": "TravelAgency",
             name: "SAS Travels",
-            url: "https://sas-travels.lovable.app",
-            logo: "https://sas-travels.lovable.app/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
+            url: "https://www.sastoursandtravels.com",
+            logo: "https://www.sastoursandtravels.com/__l5e/assets-v1/12782845-78e2-4600-bc0e-28cb6f029c95/sas-travels-logo.png",
             description:
               "SAS Travels crafts private, expert-led journeys across coastal Karnataka, India and the world.",
             email: "info@sastoursandtravels.com",
@@ -136,10 +136,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "SAS Travels",
-            url: "https://sas-travels.lovable.app",
+            url: "https://www.sastoursandtravels.com",
             potentialAction: {
               "@type": "SearchAction",
-              target: "https://sas-travels.lovable.app/destinations?q={search_term_string}",
+              target: "https://www.sastoursandtravels.com/destinations?q={search_term_string}",
               "query-input": "required name=search_term_string",
             },
           },

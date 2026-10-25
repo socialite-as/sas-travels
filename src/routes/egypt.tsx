@@ -12,9 +12,9 @@ export const Route = createFileRoute("/egypt")({
     { name: "twitter:image", content: "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1600&q=80&auto=format&fit=crop" },
     { property: "og:title", content: "Egypt Tours — Pyramids, Nile & Red Sea | SAS Travels" },
     { property: "og:description", content: "Egypt specialists: Giza pyramids, Nile cruises, Luxor temples and Red Sea stays with private guides." },
-    { property: "og:url", content: "https://sas-travels.lovable.app/egypt" },
+    { property: "og:url", content: "https://www.sastoursandtravels.com/egypt" },
     { property: "og:type", content: "website" },
-  ], links: [{ rel: "canonical", href: "https://sas-travels.lovable.app/egypt" }] }),
+  ], links: [{ rel: "canonical", href: "https://www.sastoursandtravels.com/egypt" }] }),
   component: () => {
     const [filters, setFilters] = useState<FiltersState>(defaultFilters);
     const list = useMemo(() => applyFilters(tours.filter((t) => t.region === "Egypt"), filters), [filters]);
