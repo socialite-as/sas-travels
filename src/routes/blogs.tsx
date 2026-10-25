@@ -34,6 +34,20 @@ function Blogs() {
       </header>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         <Link
+          to="/blog/coastal-karnataka-tour-guide"
+          className="group overflow-hidden rounded-2xl border bg-card hover-lift md:col-span-3"
+        >
+          <div className="p-6 md:p-8">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gold">From our Udupi home</span>
+            <h3 className="mt-2 font-display text-2xl font-semibold leading-snug group-hover:text-primary md:text-3xl">
+              Coastal Karnataka in 4 days: Udupi, Mangalore &amp; Gokarna
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Temples, St. Mary's Island, Murudeshwar and the best beaches of the Karavali coast — the route we plan most.
+            </p>
+          </div>
+        </Link>
+        <Link
           to="/blog/nile-cruise-comparison"
           className="group relative overflow-hidden rounded-2xl border bg-card hover-lift md:col-span-2"
         >

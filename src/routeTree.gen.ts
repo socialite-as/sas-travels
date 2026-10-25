@@ -9,109 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as VisaRouteImport } from './routes/visa'
-import { Route as TravelInsuranceRouteImport } from './routes/travel-insurance'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as McpRouteImport } from './routes/mcp'
-import { Route as InternationalToursRouteImport } from './routes/international-tours'
-import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as EgyptRouteImport } from './routes/egypt'
-import { Route as DomesticToursRouteImport } from './routes/domestic-tours'
-import { Route as DestinationsRouteImport } from './routes/destinations'
-import { Route as CustomItineraryRouteImport } from './routes/custom-itinerary'
-import { Route as CorporateRouteImport } from './routes/corporate'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BlogsRouteImport } from './routes/blogs'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
-import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
-import { Route as BlogNileCruiseComparisonRouteImport } from './routes/blog/nile-cruise-comparison'
-import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
-import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorporateRouteImport } from './routes/corporate'
+import { Route as CustomItineraryRouteImport } from './routes/custom-itinerary'
+import { Route as DestinationsRouteImport } from './routes/destinations'
+import { Route as DomesticToursRouteImport } from './routes/domestic-tours'
+import { Route as EgyptRouteImport } from './routes/egypt'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as InternationalToursRouteImport } from './routes/international-tours'
+import { Route as McpRouteImport } from './routes/mcp'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TravelInsuranceRouteImport } from './routes/travel-insurance'
+import { Route as VisaRouteImport } from './routes/visa'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as BlogCoastalKarnatakaTourGuideRouteImport } from './routes/blog/coastal-karnataka-tour-guide'
+import { Route as BlogNileCruiseComparisonRouteImport } from './routes/blog/nile-cruise-comparison'
+import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
+import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminResourceRouteImport } from './routes/_authenticated/admin.$resource'
-import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
-import { Route as AuthenticatedAdminResourceNewRouteImport } from './routes/_authenticated/admin.$resource.new'
 import { Route as AuthenticatedAdminResourceIdRouteImport } from './routes/_authenticated/admin.$resource.$id'
+import { Route as AuthenticatedAdminResourceNewRouteImport } from './routes/_authenticated/admin.$resource.new'
 
-const VisaRoute = VisaRouteImport.update({
-  id: '/visa',
-  path: '/visa',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TravelInsuranceRoute = TravelInsuranceRouteImport.update({
-  id: '/travel-insurance',
-  path: '/travel-insurance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const McpRoute = McpRouteImport.update({
-  id: '/mcp',
-  path: '/mcp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InternationalToursRoute = InternationalToursRouteImport.update({
-  id: '/international-tours',
-  path: '/international-tours',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EgyptRoute = EgyptRouteImport.update({
-  id: '/egypt',
-  path: '/egypt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DomesticToursRoute = DomesticToursRouteImport.update({
-  id: '/domestic-tours',
-  path: '/domestic-tours',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DestinationsRoute = DestinationsRouteImport.update({
-  id: '/destinations',
-  path: '/destinations',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CustomItineraryRoute = CustomItineraryRouteImport.update({
-  id: '/custom-itinerary',
-  path: '/custom-itinerary',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CorporateRoute = CorporateRouteImport.update({
-  id: '/corporate',
-  path: '/corporate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsRoute = BlogsRouteImport.update({
-  id: '/blogs',
-  path: '/blogs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -119,40 +54,80 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ToursTourIdRoute = ToursTourIdRouteImport.update({
-  id: '/tours/$tourId',
-  path: '/tours/$tourId',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogsSlugRoute = BlogsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogsRoute,
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const BlogNileCruiseComparisonRoute =
-  BlogNileCruiseComparisonRouteImport.update({
-    id: '/blog/nile-cruise-comparison',
-    path: '/blog/nile-cruise-comparison',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const CustomItineraryRoute = CustomItineraryRouteImport.update({
+  id: '/custom-itinerary',
+  path: '/custom-itinerary',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const DestinationsRoute = DestinationsRouteImport.update({
+  id: '/destinations',
+  path: '/destinations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomesticToursRoute = DomesticToursRouteImport.update({
+  id: '/domestic-tours',
+  path: '/domestic-tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EgyptRoute = EgyptRouteImport.update({
+  id: '/egypt',
+  path: '/egypt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternationalToursRoute = InternationalToursRouteImport.update({
+  id: '/international-tours',
+  path: '/international-tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TravelInsuranceRoute = TravelInsuranceRouteImport.update({
+  id: '/travel-insurance',
+  path: '/travel-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisaRoute = VisaRouteImport.update({
+  id: '/visa',
+  path: '/visa',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const Char91DotwellKnownChar93OauthProtectedResourceRoute =
   Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
@@ -160,6 +135,43 @@ const Char91DotwellKnownChar93OauthProtectedResourceRoute =
     path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const BlogCoastalKarnatakaTourGuideRoute =
+  BlogCoastalKarnatakaTourGuideRouteImport.update({
+    id: '/blog/coastal-karnataka-tour-guide',
+    path: '/blog/coastal-karnataka-tour-guide',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogNileCruiseComparisonRoute =
+  BlogNileCruiseComparisonRouteImport.update({
+    id: '/blog/nile-cruise-comparison',
+    path: '/blog/nile-cruise-comparison',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogsRoute,
+} as any)
+const ToursTourIdRoute = ToursTourIdRouteImport.update({
+  id: '/tours/$tourId',
+  path: '/tours/$tourId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -171,21 +183,16 @@ const AuthenticatedAdminResourceRoute =
     path: '/$resource',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
-const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
-  id: '/.lovable/oauth/consent',
-  path: '/.lovable/oauth/consent',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthenticatedAdminResourceNewRoute =
-  AuthenticatedAdminResourceNewRouteImport.update({
-    id: '/new',
-    path: '/new',
-    getParentRoute: () => AuthenticatedAdminResourceRoute,
-  } as any)
 const AuthenticatedAdminResourceIdRoute =
   AuthenticatedAdminResourceIdRouteImport.update({
     id: '/$id',
     path: '/$id',
+    getParentRoute: () => AuthenticatedAdminResourceRoute,
+  } as any)
+const AuthenticatedAdminResourceNewRoute =
+  AuthenticatedAdminResourceNewRouteImport.update({
+    id: '/new',
+    path: '/new',
     getParentRoute: () => AuthenticatedAdminResourceRoute,
   } as any)
 
@@ -210,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/coastal-karnataka-tour-guide': typeof BlogCoastalKarnatakaTourGuideRoute
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
@@ -239,6 +247,7 @@ export interface FileRoutesByTo {
   '/visa': typeof VisaRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/coastal-karnataka-tour-guide': typeof BlogCoastalKarnatakaTourGuideRoute
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
@@ -271,6 +280,7 @@ export interface FileRoutesById {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/blog/coastal-karnataka-tour-guide': typeof BlogCoastalKarnatakaTourGuideRoute
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
@@ -303,6 +313,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/admin'
     | '/dashboard'
+    | '/blog/coastal-karnataka-tour-guide'
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
@@ -332,6 +343,7 @@ export interface FileRouteTypes {
     | '/visa'
     | '/.well-known/oauth-protected-resource'
     | '/dashboard'
+    | '/blog/coastal-karnataka-tour-guide'
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
@@ -363,6 +375,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
+    | '/blog/coastal-karnataka-tour-guide'
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
     | '/tours/$tourId'
@@ -393,6 +406,7 @@ export interface RootRouteChildren {
   TravelInsuranceRoute: typeof TravelInsuranceRoute
   VisaRoute: typeof VisaRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  BlogCoastalKarnatakaTourGuideRoute: typeof BlogCoastalKarnatakaTourGuideRoute
   BlogNileCruiseComparisonRoute: typeof BlogNileCruiseComparisonRoute
   ToursTourIdRoute: typeof ToursTourIdRoute
   DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
@@ -400,116 +414,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/visa': {
-      id: '/visa'
-      path: '/visa'
-      fullPath: '/visa'
-      preLoaderRoute: typeof VisaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/travel-insurance': {
-      id: '/travel-insurance'
-      path: '/travel-insurance'
-      fullPath: '/travel-insurance'
-      preLoaderRoute: typeof TravelInsuranceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mcp': {
-      id: '/mcp'
-      path: '/mcp'
-      fullPath: '/mcp'
-      preLoaderRoute: typeof McpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/international-tours': {
-      id: '/international-tours'
-      path: '/international-tours'
-      fullPath: '/international-tours'
-      preLoaderRoute: typeof InternationalToursRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/egypt': {
-      id: '/egypt'
-      path: '/egypt'
-      fullPath: '/egypt'
-      preLoaderRoute: typeof EgyptRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/domestic-tours': {
-      id: '/domestic-tours'
-      path: '/domestic-tours'
-      fullPath: '/domestic-tours'
-      preLoaderRoute: typeof DomesticToursRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/destinations': {
-      id: '/destinations'
-      path: '/destinations'
-      fullPath: '/destinations'
-      preLoaderRoute: typeof DestinationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/custom-itinerary': {
-      id: '/custom-itinerary'
-      path: '/custom-itinerary'
-      fullPath: '/custom-itinerary'
-      preLoaderRoute: typeof CustomItineraryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/corporate': {
-      id: '/corporate'
-      path: '/corporate'
-      fullPath: '/corporate'
-      preLoaderRoute: typeof CorporateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs': {
-      id: '/blogs'
-      path: '/blogs'
-      fullPath: '/blogs'
-      preLoaderRoute: typeof BlogsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -519,18 +428,151 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tours/$tourId': {
-      id: '/tours/$tourId'
-      path: '/tours/$tourId'
-      fullPath: '/tours/$tourId'
-      preLoaderRoute: typeof ToursTourIdRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-itinerary': {
+      id: '/custom-itinerary'
+      path: '/custom-itinerary'
+      fullPath: '/custom-itinerary'
+      preLoaderRoute: typeof CustomItineraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/destinations': {
+      id: '/destinations'
+      path: '/destinations'
+      fullPath: '/destinations'
+      preLoaderRoute: typeof DestinationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/domestic-tours': {
+      id: '/domestic-tours'
+      path: '/domestic-tours'
+      fullPath: '/domestic-tours'
+      preLoaderRoute: typeof DomesticToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/egypt': {
+      id: '/egypt'
+      path: '/egypt'
+      fullPath: '/egypt'
+      preLoaderRoute: typeof EgyptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/international-tours': {
+      id: '/international-tours'
+      path: '/international-tours'
+      fullPath: '/international-tours'
+      preLoaderRoute: typeof InternationalToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/travel-insurance': {
+      id: '/travel-insurance'
+      path: '/travel-insurance'
+      fullPath: '/travel-insurance'
+      preLoaderRoute: typeof TravelInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/visa': {
+      id: '/visa'
+      path: '/visa'
+      fullPath: '/visa'
+      preLoaderRoute: typeof VisaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/blog/coastal-karnataka-tour-guide': {
+      id: '/blog/coastal-karnataka-tour-guide'
+      path: '/blog/coastal-karnataka-tour-guide'
+      fullPath: '/blog/coastal-karnataka-tour-guide'
+      preLoaderRoute: typeof BlogCoastalKarnatakaTourGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/nile-cruise-comparison': {
+      id: '/blog/nile-cruise-comparison'
+      path: '/blog/nile-cruise-comparison'
+      fullPath: '/blog/nile-cruise-comparison'
+      preLoaderRoute: typeof BlogNileCruiseComparisonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blogs/$slug': {
@@ -540,32 +582,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof BlogsRoute
     }
-    '/blog/nile-cruise-comparison': {
-      id: '/blog/nile-cruise-comparison'
-      path: '/blog/nile-cruise-comparison'
-      fullPath: '/blog/nile-cruise-comparison'
-      preLoaderRoute: typeof BlogNileCruiseComparisonRouteImport
+    '/tours/$tourId': {
+      id: '/tours/$tourId'
+      path: '/tours/$tourId'
+      fullPath: '/tours/$tourId'
+      preLoaderRoute: typeof ToursTourIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/admin': {
-      id: '/_authenticated/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AuthenticatedAdminRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/.well-known/oauth-protected-resource': {
-      id: '/.well-known/oauth-protected-resource'
-      path: '/.well-known/oauth-protected-resource'
-      fullPath: '/.well-known/oauth-protected-resource'
-      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/admin/': {
@@ -582,25 +610,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminResourceRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/.lovable/oauth/consent': {
-      id: '/.lovable/oauth/consent'
-      path: '/.lovable/oauth/consent'
-      fullPath: '/.lovable/oauth/consent'
-      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_authenticated/admin/$resource/$id': {
+      id: '/_authenticated/admin/$resource/$id'
+      path: '/$id'
+      fullPath: '/admin/$resource/$id'
+      preLoaderRoute: typeof AuthenticatedAdminResourceIdRouteImport
+      parentRoute: typeof AuthenticatedAdminResourceRoute
     }
     '/_authenticated/admin/$resource/new': {
       id: '/_authenticated/admin/$resource/new'
       path: '/new'
       fullPath: '/admin/$resource/new'
       preLoaderRoute: typeof AuthenticatedAdminResourceNewRouteImport
-      parentRoute: typeof AuthenticatedAdminResourceRoute
-    }
-    '/_authenticated/admin/$resource/$id': {
-      id: '/_authenticated/admin/$resource/$id'
-      path: '/$id'
-      fullPath: '/admin/$resource/$id'
-      preLoaderRoute: typeof AuthenticatedAdminResourceIdRouteImport
       parentRoute: typeof AuthenticatedAdminResourceRoute
     }
   }
@@ -679,6 +700,7 @@ const rootRouteChildren: RootRouteChildren = {
   VisaRoute: VisaRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  BlogCoastalKarnatakaTourGuideRoute: BlogCoastalKarnatakaTourGuideRoute,
   BlogNileCruiseComparisonRoute: BlogNileCruiseComparisonRoute,
   ToursTourIdRoute: ToursTourIdRoute,
   DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,

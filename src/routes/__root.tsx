@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
@@ -16,6 +17,7 @@ import { ThemeProvider } from "@/lib/theme-provider";
 import { AuthProvider } from "@/lib/auth-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 function NotFoundComponent() {
   return (
@@ -36,7 +38,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -108,7 +110,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@type": "PostalAddress",
               addressLocality: "Udupi",
               addressRegion: "Karnataka",
+              postalCode: "576101",
               addressCountry: "IN",
+            },
+            geo: { "@type": "GeoCoordinates", latitude: 13.3409, longitude: 74.7421 },
+            areaServed: [
+              { "@type": "City", name: "Udupi" },
+              { "@type": "City", name: "Mangaluru" },
+              { "@type": "AdministrativeArea", name: "Udupi District" },
+              { "@type": "AdministrativeArea", name: "Dakshina Kannada" },
+              { "@type": "State", name: "Karnataka" },
+            ],
+            priceRange: "₹₹–₹₹₹₹",
+            currenciesAccepted: "INR",
+            knowsAbout: ["Coastal Karnataka tours", "Udupi temple tours", "Mangalore tour packages", "Corporate offsites", "Egypt tour packages", "Dubai holidays"],
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+91 72047 51900",
+              contactType: "customer service",
+              areaServed: "IN",
+              availableLanguage: ["English", "Kannada", "Hindi", "Tulu"],
             },
           },
           {
@@ -161,6 +182,7 @@ function RootComponent() {
             </main>
             <SiteFooter />
           </div>
+          <WhatsAppButton />
           <Toaster richColors position="top-right" />
         </AuthProvider>
       </ThemeProvider>
