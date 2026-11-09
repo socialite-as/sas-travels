@@ -736,7 +736,7 @@ export type Database = {
           meals: Json | null
           meta_description: string | null
           meta_title: string | null
-          price: number
+          price: number | null
           slug: string
           summary: string | null
           title: string
@@ -777,7 +777,7 @@ export type Database = {
           meals?: Json | null
           meta_description?: string | null
           meta_title?: string | null
-          price?: number
+          price?: number | null
           slug: string
           summary?: string | null
           title: string
@@ -818,7 +818,7 @@ export type Database = {
           meals?: Json | null
           meta_description?: string | null
           meta_title?: string | null
-          price?: number
+          price?: number | null
           slug?: string
           summary?: string | null
           title?: string
