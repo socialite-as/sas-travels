@@ -1,0 +1,1 @@
+ALTER TABLE public.tour_packages ALTER COLUMN price DROP NOT NULL;
