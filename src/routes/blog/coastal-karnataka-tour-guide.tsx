@@ -132,6 +132,7 @@ function Guide() {
           Private car, handpicked stays and temple timings sorted — tailored to your dates and budget in INR.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
+          <Button asChild variant="secondary"><Link to="/tours/$tourId" params={{ tourId: "coastal-to-highlands-escape" }}>Mangalore, Coorg & Chikmagalur 5D/4N tour</Link></Button>
           <Button asChild variant="secondary"><Link to="/domestic-tours">See Karnataka packages</Link></Button>
           <Button asChild variant="outline" className="bg-transparent"><Link to="/custom-itinerary">Plan a custom trip</Link></Button>
         </div>

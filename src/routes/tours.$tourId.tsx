@@ -30,11 +30,16 @@ export const Route = createFileRoute("/tours/$tourId")({
       "Explore this curated tour — full itinerary, hotels, and availability.";
     const image = tour?.cover_image ?? undefined;
     const price = tour?.discount_price ?? tour?.price ?? undefined;
+    const seoTitle = tour?.meta_title ?? `${name} — SAS Travels`;
+    const days = Array.isArray(tour?.itinerary)
+      ? (tour!.itinerary as { day?: number; title?: string; description?: string }[])
+      : [];
     return {
       meta: [
-        { title: `${name} — SAS Travels` },
+        { title: seoTitle },
         { name: "description", content: description },
-        { property: "og:title", content: `${name} — SAS Travels` },
+        { property: "og:title", content: seoTitle },
+        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:type", content: "product" },
@@ -70,6 +75,30 @@ export const Route = createFileRoute("/tours/$tourId")({
               : {}),
           }),
         },
+        ...(days.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "TouristTrip",
+                  name,
+                  description,
+                  url,
+                  ...(image ? { image } : {}),
+                  provider: { "@type": "TravelAgency", name: "SAS Travels", url: "https://www.sastoursandtravels.com" },
+                  itinerary: {
+                    "@type": "ItemList",
+                    itemListElement: days.map((d, i) => ({
+                      "@type": "ListItem",
+                      position: d.day ?? i + 1,
+                      item: { "@type": "TouristAttraction", name: d.title ?? `Day ${i + 1}`, description: d.description },
+                    })),
+                  },
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
