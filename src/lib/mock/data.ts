@@ -18,7 +18,7 @@ export type Tour = {
   destination: string;
   region: "Egypt" | "Domestic" | "International";
   durationDays: number;
-  priceFrom: number;
+  priceFrom: number | null;
   rating: number;
   reviewsCount: number;
   image: string;
@@ -67,6 +67,10 @@ export const destinations: Destination[] = [
 
 export const tours: Tour[] = [
   // --- Domestic: coastal Karnataka & neighbours ---
+  { id: "t0", slug: "coastal-to-highlands-escape", title: "Coastal to Highlands Escape: Mangalore, Coorg & Chikmagalur",
+    destination: "Mangalore · Coorg · Chikmagalur", region: "Domestic", durationDays: 5, priceFrom: null,
+    rating: 0, reviewsCount: 0, image: img("photo-1596386461350-326ccb383e9f"),
+    highlights: ["Coorg waterfalls & coffee estates", "Golden Temple, Bylakuppe", "Mullayanagiri & misty hills"], featured: true },
   { id: "t1", slug: "coastal-karnataka-signature", title: "Coastal Karnataka: Udupi, Malpe & Maravanthe",
     destination: "Udupi · Malpe · Maravanthe", region: "Domestic", durationDays: 5, priceFrom: 24900,
     rating: 4.9, reviewsCount: 186, image: img("photo-1609609830354-8f615d61b9c8"),

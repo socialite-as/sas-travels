@@ -94,7 +94,7 @@ export function TourFilters({
   );
 }
 
-export function applyFilters<T extends { title: string; destination: string; priceFrom: number; durationDays: number }>(
+export function applyFilters<T extends { title: string; destination: string; priceFrom: number | null; durationDays: number }>(
   items: T[],
   f: FiltersState,
 ): T[] {
@@ -104,14 +104,16 @@ export function applyFilters<T extends { title: string; destination: string; pri
     if (f.duration === "short" && t.durationDays > 5) return false;
     if (f.duration === "medium" && (t.durationDays < 6 || t.durationDays > 8)) return false;
     if (f.duration === "long" && t.durationDays < 9) return false;
-    if (f.price === "under25k" && t.priceFrom >= 25000) return false;
-    if (f.price === "25kto75k" && (t.priceFrom < 25000 || t.priceFrom > 75000)) return false;
-    if (f.price === "over75k" && t.priceFrom <= 75000) return false;
+    if (f.price !== "all" && t.priceFrom == null) return false;
+    const price = t.priceFrom ?? 0;
+    if (f.price === "under25k" && price >= 25000) return false;
+    if (f.price === "25kto75k" && (price < 25000 || price > 75000)) return false;
+    if (f.price === "over75k" && price <= 75000) return false;
 
     return true;
   });
-  if (f.sort === "price-asc") out = [...out].sort((a, b) => a.priceFrom - b.priceFrom);
-  if (f.sort === "price-desc") out = [...out].sort((a, b) => b.priceFrom - a.priceFrom);
+  if (f.sort === "price-asc") out = [...out].sort((a, b) => (a.priceFrom ?? Infinity) - (b.priceFrom ?? Infinity));
+  if (f.sort === "price-desc") out = [...out].sort((a, b) => (b.priceFrom ?? -1) - (a.priceFrom ?? -1));
   if (f.sort === "duration") out = [...out].sort((a, b) => a.durationDays - b.durationDays);
   return out;
 }

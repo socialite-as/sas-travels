@@ -415,7 +415,19 @@ function TourDetails() {
                 </select>
               </label>
             </div>
-            <Button className="mt-5 w-full" size="lg">Request to book</Button>
+            {displayPrice == null && (
+              <>
+                <div className="font-display text-2xl font-semibold text-primary">Price on request</div>
+                <div className="text-xs text-muted-foreground">Tailored to your dates, hotels and group size</div>
+              </>
+            )}
+            {displayPrice == null ? (
+              <Button asChild className="mt-5 w-full" size="lg">
+                <a href={`https://wa.me/917204751900?text=${encodeURIComponent(`Hi SAS Travels! I'd like a quote for "${tour.title}".`)}`} target="_blank" rel="noopener noreferrer">Get a quote on WhatsApp</a>
+              </Button>
+            ) : (
+              <Button className="mt-5 w-full" size="lg">Request to book</Button>
+            )}
             <Button asChild variant="outline" className="mt-2 w-full"><Link to="/contact">Speak with a specialist</Link></Button>
             <div className="mt-5 flex items-start gap-2 text-xs text-muted-foreground">
               <Shield className="mt-0.5 h-4 w-4 text-gold" />

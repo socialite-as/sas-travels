@@ -20,11 +20,11 @@ export function TourCard({ tour }: { tour: Tour }) {
         <div className="absolute left-3 top-3 rounded-full bg-background/90 px-3 py-1 text-xs font-medium backdrop-blur">
           {tour.region}
         </div>
-        <div className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium backdrop-blur">
+        {tour.reviewsCount > 0 && <div className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium backdrop-blur">
           <Star className="h-3 w-3 fill-gold text-gold" />
           {tour.rating.toFixed(1)}
           <span className="text-muted-foreground">({tour.reviewsCount})</span>
-        </div>
+        </div>}
       </div>
       <div className="p-5">
         <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -40,10 +40,12 @@ export function TourCard({ tour }: { tour: Tour }) {
             {tour.durationDays} days
           </div>
           <div className="text-right">
+            {tour.priceFrom != null ? (<>
             <div className="text-xs text-muted-foreground">from</div>
             <div className="font-display text-xl font-semibold text-primary">
               ₹{tour.priceFrom.toLocaleString("en-IN")}
-            </div>
+            </div></>) : (
+            <div className="font-display text-base font-semibold text-primary">Get a quote</div>)}
 
           </div>
         </div>
