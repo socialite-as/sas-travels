@@ -12,6 +12,7 @@ const groups: { title: string; links: { to: string; label: string }[] }[] = [
       { to: "/international-tours", label: "International Tours" },
       { to: "/egypt", label: "Egypt" },
       { to: "/destinations", label: "Destinations" },
+      { to: "/tours-from-mangalore", label: "Tours from Mangalore" },
       { to: "/gallery", label: "Gallery" },
     ],
   },
@@ -19,6 +20,7 @@ const groups: { title: string; links: { to: string; label: string }[] }[] = [
     title: "Company",
     links: [
       { to: "/about", label: "About" },
+      { to: "/travel-agency-udupi", label: "Travel Agency in Udupi" },
       { to: "/blogs", label: "Journal" },
       { to: "/contact", label: "Contact" },
       { to: "/faq", label: "FAQ" },

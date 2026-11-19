@@ -25,6 +25,8 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as InternationalToursRouteImport } from './routes/international-tours'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ToursFromMangaloreRouteImport } from './routes/tours-from-mangalore'
+import { Route as TravelAgencyUdupiRouteImport } from './routes/travel-agency-udupi'
 import { Route as TravelInsuranceRouteImport } from './routes/travel-insurance'
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
@@ -117,6 +119,16 @@ const McpRoute = McpRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToursFromMangaloreRoute = ToursFromMangaloreRouteImport.update({
+  id: '/tours-from-mangalore',
+  path: '/tours-from-mangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TravelAgencyUdupiRoute = TravelAgencyUdupiRouteImport.update({
+  id: '/travel-agency-udupi',
+  path: '/travel-agency-udupi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TravelInsuranceRoute = TravelInsuranceRouteImport.update({
@@ -212,6 +224,8 @@ export interface FileRoutesByFullPath {
   '/international-tours': typeof InternationalToursRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tours-from-mangalore': typeof ToursFromMangaloreRoute
+  '/travel-agency-udupi': typeof TravelAgencyUdupiRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -243,6 +257,8 @@ export interface FileRoutesByTo {
   '/international-tours': typeof InternationalToursRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tours-from-mangalore': typeof ToursFromMangaloreRoute
+  '/travel-agency-udupi': typeof TravelAgencyUdupiRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -275,6 +291,8 @@ export interface FileRoutesById {
   '/international-tours': typeof InternationalToursRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tours-from-mangalore': typeof ToursFromMangaloreRoute
+  '/travel-agency-udupi': typeof TravelAgencyUdupiRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -308,6 +326,8 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/mcp'
     | '/sitemap.xml'
+    | '/tours-from-mangalore'
+    | '/travel-agency-udupi'
     | '/travel-insurance'
     | '/visa'
     | '/.well-known/oauth-protected-resource'
@@ -339,6 +359,8 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/mcp'
     | '/sitemap.xml'
+    | '/tours-from-mangalore'
+    | '/travel-agency-udupi'
     | '/travel-insurance'
     | '/visa'
     | '/.well-known/oauth-protected-resource'
@@ -370,6 +392,8 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/mcp'
     | '/sitemap.xml'
+    | '/tours-from-mangalore'
+    | '/travel-agency-udupi'
     | '/travel-insurance'
     | '/visa'
     | '/.well-known/oauth-protected-resource'
@@ -403,6 +427,8 @@ export interface RootRouteChildren {
   InternationalToursRoute: typeof InternationalToursRoute
   McpRoute: typeof McpRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToursFromMangaloreRoute: typeof ToursFromMangaloreRoute
+  TravelAgencyUdupiRoute: typeof TravelAgencyUdupiRoute
   TravelInsuranceRoute: typeof TravelInsuranceRoute
   VisaRoute: typeof VisaRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -524,6 +550,20 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tours-from-mangalore': {
+      id: '/tours-from-mangalore'
+      path: '/tours-from-mangalore'
+      fullPath: '/tours-from-mangalore'
+      preLoaderRoute: typeof ToursFromMangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/travel-agency-udupi': {
+      id: '/travel-agency-udupi'
+      path: '/travel-agency-udupi'
+      fullPath: '/travel-agency-udupi'
+      preLoaderRoute: typeof TravelAgencyUdupiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/travel-insurance': {
@@ -696,6 +736,8 @@ const rootRouteChildren: RootRouteChildren = {
   InternationalToursRoute: InternationalToursRoute,
   McpRoute: McpRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToursFromMangaloreRoute: ToursFromMangaloreRoute,
+  TravelAgencyUdupiRoute: TravelAgencyUdupiRoute,
   TravelInsuranceRoute: TravelInsuranceRoute,
   VisaRoute: VisaRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
