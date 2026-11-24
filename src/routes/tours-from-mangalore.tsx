@@ -11,10 +11,10 @@ const WA = "https://wa.me/917204751900?text=" + encodeURIComponent("Hi SAS Trave
 const trips = [
   { t: "Mangalore – Coorg – Chikmagalur", d: "5 days / 4 nights · Abbey Falls, Dubare, Mullayanagiri, Belur", to: "coastal-to-highlands-escape" as const },
   { t: "Coastal Karnataka: Udupi, Murudeshwar & Gokarna", d: "3–4 days · temples, Malpe, St. Mary's Island, Om Beach", guide: true },
-  { t: "South Canara temple circuit", d: "2 days / 1 night · Kateel, Dharmasthala, Kukke Subramanya, Kollur" },
-  { t: "Mangalore to Wayanad or Munnar", d: "3–4 days · hill stays, tea estates, waterfalls" },
-  { t: "Mysore & Ooty from Mangalore", d: "4–5 days · palaces, gardens, Nilgiri toy train" },
-  { t: "Hampi & Badami heritage", d: "4 days · UNESCO ruins, cave temples" },
+  { t: "South Canara temple circuit", d: "2 days / 1 night · Kateel, Dharmasthala, Kukke Subramanya, Kollur", slug: "south-canara-temple-tour-from-mangalore" },
+  { t: "Mangalore to Wayanad or Munnar", d: "3–4 days · hill stays, tea estates, waterfalls", slug: "mangalore-to-wayanad-or-munnar" },
+  { t: "Mysore & Ooty from Mangalore", d: "4–5 days · palaces, gardens, Nilgiri toy train", slug: "mysore-ooty-tour-from-mangalore" },
+  { t: "Hampi & Badami heritage", d: "4 days · UNESCO ruins, cave temples", slug: "hampi-badami-tour-from-mangalore" },
 ];
 
 export const Route = createFileRoute("/tours-from-mangalore")({
@@ -84,6 +84,10 @@ function MangalorePage() {
                 <Button asChild size="sm"><Link to="/tours/$tourId" params={{ tourId: t.to }}>View itinerary</Link></Button>
               ) : t.guide ? (
                 <Button asChild size="sm" variant="outline"><Link to="/blog/coastal-karnataka-tour-guide">Read the route</Link></Button>
+              ) : t.slug ? (
+                <Button asChild size="sm" variant="outline">
+                  <Link to="/tours-from-mangalore/$tripSlug" params={{ tripSlug: t.slug }}>View trip details</Link>
+                </Button>
               ) : (
                 <Button asChild size="sm" variant="outline">
                   <a href={"https://wa.me/917204751900?text=" + encodeURIComponent(`Hi SAS Travels, I'd like a quote for: ${t.t}`)} target="_blank" rel="noopener noreferrer">Ask for a quote</a>

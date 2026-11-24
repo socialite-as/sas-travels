@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Keep Mangalore departure itineraries in a shared static catalog and render them through the nested detail route, so trip content and page rendering stay consistent.
