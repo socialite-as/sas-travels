@@ -1,7 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
-import type { Database } from "@/integrations/supabase/types";
 
 export const corporateEnquirySchema = z.object({
   company_name: z.string().trim().min(1, "Company name is required").max(150),
@@ -24,32 +22,9 @@ export const submitCorporateEnquiry = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     if (data.website) return { ok: true };
 
-    const url = process.env["SUPABASE_URL"] ?? process.env["VITE_SUPABASE_URL"];
-    const key = process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    if (!url || !key) {
-      console.error("[corporate-enquiry] missing Supabase env", {
-        hasUrl: Boolean(url),
-        hasKey: Boolean(key),
-      });
-      throw new Error(
-        "We couldn't submit your enquiry right now. Please call +91 72047 51900 or email info@sastoursandtravels.com.",
-      );
-    }
-
-    const supabasePublic = createClient<Database>(url, key, {
-      auth: { persistSession: false, autoRefreshToken: false },
-      global: {
-        fetch: (input, init) => {
-          const h = new Headers(init?.headers);
-          if (key.startsWith("sb_") && h.get("Authorization") === `Bearer ${key}`) h.delete("Authorization");
-          h.set("apikey", key);
-          return fetch(input, { ...init, headers: h });
-        },
-      },
-    });
-
-    const { error } = await supabasePublic.from("corporate_enquiries").insert({
+    const { error } = await supabaseAdmin.from("corporate_enquiries").insert({
       company_name: data.company_name,
       contact_name: data.contact_name,
       email: data.email,

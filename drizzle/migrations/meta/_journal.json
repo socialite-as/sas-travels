@@ -8,6 +8,13 @@
       "when": 1794242932534,
       "tag": "0000_allow_quote_only_tours",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795704153973,
+      "tag": "0001_restrict_public_enquiry_inserts",
+      "breakpoints": true
     }
   ]
 }
