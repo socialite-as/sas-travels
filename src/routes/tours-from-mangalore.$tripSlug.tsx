@@ -5,7 +5,7 @@ import { mangaloreTrips } from "@/lib/mangalore-trips";
 
 const BASE_URL = "https://www.sastoursandtravels.com";
 
-export const Route = createFileRoute("/tours-from-mangalore/$tripSlug_")({
+export const Route = createFileRoute("/tours-from-mangalore/$tripSlug")({
   loader: ({ params }) => {
     const trip = mangaloreTrips.find((item) => item.slug === params.tripSlug);
     if (!trip) throw notFound();

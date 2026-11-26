@@ -18,8 +18,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "SAS Travels — India & international holidays, thoughtfully crafted" },
       { property: "og:description", content: "Coastal Karnataka escapes and Egypt, UAE, Maldives, Thailand & Malaysia packages priced in INR." },
 
+      { property: "og:type", content: "website" },
       { property: "og:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
       { name: "twitter:image", content: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=1600&q=80&auto=format&fit=crop" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "https://www.sastoursandtravels.com/" },
     ],
     links: [{ rel: "canonical", href: "https://www.sastoursandtravels.com/" }],

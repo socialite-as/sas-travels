@@ -35,7 +35,8 @@ import { Route as AuthenticatedDashboardRouteImport } from './routes/_authentica
 import { Route as BlogCoastalKarnatakaTourGuideRouteImport } from './routes/blog/coastal-karnataka-tour-guide'
 import { Route as BlogNileCruiseComparisonRouteImport } from './routes/blog/nile-cruise-comparison'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
-import { Route as ToursFromMangaloreTripSlugRouteImport } from './routes/tours-from-mangalore.$tripSlug_'
+import { Route as ToursFromMangaloreIndexRouteImport } from './routes/tours-from-mangalore.index'
+import { Route as ToursFromMangaloreTripSlugRouteImport } from './routes/tours-from-mangalore.$tripSlug'
 import { Route as ToursTourIdRouteImport } from './routes/tours.$tourId'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
@@ -175,9 +176,14 @@ const BlogsSlugRoute = BlogsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogsRoute,
 } as any)
+const ToursFromMangaloreIndexRoute = ToursFromMangaloreIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ToursFromMangaloreRoute,
+} as any)
 const ToursFromMangaloreTripSlugRoute =
   ToursFromMangaloreTripSlugRouteImport.update({
-    id: '/$tripSlug_',
+    id: '/$tripSlug',
     path: '/$tripSlug',
     getParentRoute: () => ToursFromMangaloreRoute,
   } as any)
@@ -243,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours-from-mangalore/$tripSlug': typeof ToursFromMangaloreTripSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/tours-from-mangalore/': typeof ToursFromMangaloreIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin/': typeof AuthenticatedAdminIndexRoute
@@ -265,7 +272,6 @@ export interface FileRoutesByTo {
   '/international-tours': typeof InternationalToursRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/tours-from-mangalore': typeof ToursFromMangaloreRouteWithChildren
   '/travel-agency-udupi': typeof TravelAgencyUdupiRoute
   '/travel-insurance': typeof TravelInsuranceRoute
   '/visa': typeof VisaRoute
@@ -276,6 +282,7 @@ export interface FileRoutesByTo {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/tours-from-mangalore/$tripSlug': typeof ToursFromMangaloreTripSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/tours-from-mangalore': typeof ToursFromMangaloreIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/admin': typeof AuthenticatedAdminIndexRoute
@@ -310,8 +317,9 @@ export interface FileRoutesById {
   '/blog/coastal-karnataka-tour-guide': typeof BlogCoastalKarnatakaTourGuideRoute
   '/blog/nile-cruise-comparison': typeof BlogNileCruiseComparisonRoute
   '/blogs/$slug': typeof BlogsSlugRoute
-  '/tours-from-mangalore/$tripSlug_': typeof ToursFromMangaloreTripSlugRoute
+  '/tours-from-mangalore/$tripSlug': typeof ToursFromMangaloreTripSlugRoute
   '/tours/$tourId': typeof ToursTourIdRoute
+  '/tours-from-mangalore/': typeof ToursFromMangaloreIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/_authenticated/admin/$resource': typeof AuthenticatedAdminResourceRouteWithChildren
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
@@ -348,6 +356,7 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/tours-from-mangalore/$tripSlug'
     | '/tours/$tourId'
+    | '/tours-from-mangalore/'
     | '/.lovable/oauth/consent'
     | '/admin/$resource'
     | '/admin/'
@@ -370,7 +379,6 @@ export interface FileRouteTypes {
     | '/international-tours'
     | '/mcp'
     | '/sitemap.xml'
-    | '/tours-from-mangalore'
     | '/travel-agency-udupi'
     | '/travel-insurance'
     | '/visa'
@@ -381,6 +389,7 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/tours-from-mangalore/$tripSlug'
     | '/tours/$tourId'
+    | '/tours-from-mangalore'
     | '/.lovable/oauth/consent'
     | '/admin/$resource'
     | '/admin'
@@ -414,8 +423,9 @@ export interface FileRouteTypes {
     | '/blog/coastal-karnataka-tour-guide'
     | '/blog/nile-cruise-comparison'
     | '/blogs/$slug'
-    | '/tours-from-mangalore/$tripSlug_'
+    | '/tours-from-mangalore/$tripSlug'
     | '/tours/$tourId'
+    | '/tours-from-mangalore/'
     | '/.lovable/oauth/consent'
     | '/_authenticated/admin/$resource'
     | '/_authenticated/admin/'
@@ -635,8 +645,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsSlugRouteImport
       parentRoute: typeof BlogsRoute
     }
-    '/tours-from-mangalore/$tripSlug_': {
-      id: '/tours-from-mangalore/$tripSlug_'
+    '/tours-from-mangalore/': {
+      id: '/tours-from-mangalore/'
+      path: '/'
+      fullPath: '/tours-from-mangalore/'
+      preLoaderRoute: typeof ToursFromMangaloreIndexRouteImport
+      parentRoute: typeof ToursFromMangaloreRoute
+    }
+    '/tours-from-mangalore/$tripSlug': {
+      id: '/tours-from-mangalore/$tripSlug'
       path: '/$tripSlug'
       fullPath: '/tours-from-mangalore/$tripSlug'
       preLoaderRoute: typeof ToursFromMangaloreTripSlugRouteImport
@@ -741,10 +758,12 @@ const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
 
 interface ToursFromMangaloreRouteChildren {
   ToursFromMangaloreTripSlugRoute: typeof ToursFromMangaloreTripSlugRoute
+  ToursFromMangaloreIndexRoute: typeof ToursFromMangaloreIndexRoute
 }
 
 const ToursFromMangaloreRouteChildren: ToursFromMangaloreRouteChildren = {
   ToursFromMangaloreTripSlugRoute: ToursFromMangaloreTripSlugRoute,
+  ToursFromMangaloreIndexRoute: ToursFromMangaloreIndexRoute,
 }
 
 const ToursFromMangaloreRouteWithChildren =
